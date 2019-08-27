@@ -1,3 +1,79 @@
+'use strict';
+
+var formLogin = document.getElementById('login');
+var walk = document.getElementById('walk');
+var listOfActivities = [];
+var listOfUsers = [];
+
+// object constructer for users
+
+function User (name, email, age, weight) {
+  this.name = name;
+  this.email = email;
+  this.age = age;
+  this.weight = weight;
+  listOfUsers.push(this);
+}
+
+var a = new User ('James', 'a@a.com', 7, 180);
+
+console.log(listOfUsers);
+
+
+
+function Activity (type) {
+  this.type = type;
+  this.distance = 0;
+  this.calories = 0;
+  listOfActivities.push(this);
+}
+
+function newActivity(event) {
+  var type = event.target.walk.value;
+  new Activity(type);
+
+
+
+  console.log(listOfActivities);
+}
+
+function newUser(event) {
+  event.preventDefault();
+  var name = event.target.name.value;
+  var email = event.target.email.value;
+  var age = parseInt(event.target.age.value);
+  var weight= parseInt(event.target.weight.value);
+  new User (name, email, age, weight);
+
+
+  console.log(listOfUsers);
+}
+
+//formLogin.addEventListener('submit', newUser);
+walk.addEventListener('submit', newActivity);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function testApp() {
   console.log('testApp');
 }
