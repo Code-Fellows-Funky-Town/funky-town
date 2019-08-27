@@ -3,7 +3,14 @@
 var formLogin = document.getElementById('login');
 var walk = document.getElementById('walk');
 var listOfActivities = [];
-var listOfUsers = [];
+var currentUser = {};
+var distanceTest = 2;
+var excersiceProperties = [
+    ['walk', 3.0, 2.5],
+    ['run', 11, 6.7],
+    ['bike', 9.3, 14]
+];
+var typeTest = 'walk';
 
 // object constructer for users
 
@@ -12,26 +19,23 @@ function User(name, email, age, weight) {
     this.email = email;
     this.age = age;
     this.weight = weight;
-    listOfUsers.push(this);
 }
 
-var a = new User('James', 'a@a.com', 7, 180);
 
-console.log(listOfUsers);
-
-
-
-function Activity(type) {
+function Activity(type, distance) {
     this.type = type;
-    this.distance = 0;
-    this.calories = 0;
+    this.distance = distance;
+    this.duration = this.duration();
+    this.calories = this.calorieCount();
     listOfActivities.push(this);
 }
 
-function newActivity(event) {
-    var type = event.target.id;
-    new Activity(type);
-    console.log(listOfActivities);
+function newActivity() {
+    var type = typeTest;
+    // var type = event.target.id;
+    var distance = distanceTest;
+    new Activity(type, distance);
+    localStorage.setItem('activities-' + currentUser.email, JSON.stringify(listOfActivities));
 }
 
 function newUser(event) {
@@ -40,83 +44,43 @@ function newUser(event) {
     var email = event.target.email.value;
     var age = parseInt(event.target.age.value);
     var weight = parseInt(event.target.weight.value);
-    new User(name, email, age, weight);
+    currentUser = new User(name, email, age, weight);
+    localStorage.setItem('user-' + currentUser.email, JSON.stringify(currentUser));
 
 
-    console.log(listOfUsers);
+    console.log(currentUser);
 }
 
-// formLogin.addEventListener('submit', newUser);
-walk.addEventListener('click', newActivity);
 
+formLogin.addEventListener('submit', newUser);
 
+// walk.addEventListener('click', newActivity);
 
+Activity.prototype.duration = function() {
+    var speed = 0;
+    for (var i = 0; i < excersiceProperties.length; i++) {
+        if (excersiceProperties[i][0] === this.type) {
+            speed = excersiceProperties[i][2];
+        }
+    }
+    return this.distance / speed;
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function testApp() {
-    console.log('testApp');
-}
-
-testApp();
 
 
 // Calories calculation test
-var met = [
-    ['walk', 3.0],
-    ['run', 11],
-    ['bike', 9.3]
-];
 
-console.log(met[0][0]);
-console.log(met[0][1]);
-
-var user1 = {
-    weight: 100, // weight in pounds
-};
-
-console.log(user1.weight);
-
-var activityRun = {
-    type: 'run',
-    distance: 0.5, // miles
-    duration: 0.08 // hurs
-};
-
-console.log(activityRun.type);
-
-
-function calories() {
-    // get acitivity value
-    // get weight value
-    var metTest = 0;
-    for (var i = 0; i < met.length; i++) {
-        if (met[i][0] === activityRun.type) {
-            metTest = met[i][1];
+Activity.prototype.calorieCount = function() {
+    var met = 0;
+    for (var i = 0; i < excersiceProperties.length; i++) {
+        if (excersiceProperties[i][0] === this.type) {
+            met = excersiceProperties[i][1];
         }
     }
+    return met * currentUser.weight / 2.2 * this.duration;
 
-    console.log(metTest);
+};
+console.log(currentUser.weight);
 
 
-    var calories = 0.175 * metTest * user1.weight / 2.2 * activityRun.duration;
-    console.log(calories);
-}
-calories();
+console.log(listOfActivities);
