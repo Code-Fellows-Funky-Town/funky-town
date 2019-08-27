@@ -2,7 +2,7 @@ body {
         
     float: center;
     margin: 0 auto;
-    width: 1920px;
+    width: 1200px;
 }
 
 header {
@@ -207,7 +207,7 @@ img {
     border: solid 30px rgb(95, 91, 91) ;
     border-radius: 20px;
     box-shadow: 5px 5px 5px rgb(3, 8, 19);
-    height:300px;
+    height:240px;
     margin: 2px;
     object-fit:scale-down;
     opacity: .7;
@@ -215,7 +215,7 @@ img {
     margin-left: 40px;
     margin-right: 40px;
     text-shadow: 5px;
-    width:375px;
+    width:315px;
 }
 
 img:hover {
@@ -239,7 +239,7 @@ img:hover {
     height: auto; 
     min-width: 100%; 
     min-height: 100%;
-    opacity: 0.2;
+    opacity: 0.1;
     position: fixed;
     right: 0; 
     width: auto; 
@@ -252,7 +252,7 @@ img:hover {
     bottom: 0;
     min-width: 100%; 
     min-height: 100%;
-    opacity: 0.9;
+    opacity: 0.7;
     position: fixed;
     right: 0; 
     width: auto; 
