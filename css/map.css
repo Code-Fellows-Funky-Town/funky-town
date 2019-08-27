@@ -1,4 +1,160 @@
-body {}
+body {
+        
+ 
+  margin: 0 auto;
+  width: 100%;
+}
+
+#background {
+
+  background-image:url(../assets/img/map.png);
+  height: 1180px;
+  width: 1920px;
+  position: relative;
+  z-index: -100;
+
+}
+
+
+.map {
+
+  background-color: rgba(236, 10, 10, 0.473);
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px rgb(15, 15, 15);
+  font-family:'Audiowide', cursive;
+  font-size: 40px;
+  height: 100px;
+  margin-left: 40px;
+  text-shadow: 3px 3px 5px rgb(247, 246, 246);
+  
+
+}
+
+
+
+#onMaph1 {
+  color:rgb(12, 10, 10); 
+  display: inline;
+  font-family:'Audiowide', cursive;
+  font-size:50px;
+  padding-top: 0px;
+  text-align: left;
+  text-shadow: 7px 7px 1px rgba(247, 246, 246, 0);
+  top:0px;
+  left:450px;
+  position: absolute;
+  z-index: 100;
+}
+
+#onMaph1 :hover(.active){
+  color:rgb(12, 10, 10); 
+  font-family:'Audiowide', cursive;
+  font-size:80px;
+  left:1480px;
+  padding-top: 0px;
+  text-align: center;
+  text-shadow: 7px 7px 1px rgba(247, 246, 246, 0);
+  top:0px;
+  position: absolute;
+  transition: 1s all;    
+  z-index: 100;
+}
+
+
+
+#barMap {
+
+  display: inline;
+  overflow: auto;
+  top: 100px;
+  position: absolute;
+
+}
+
+
+.sidenav1 {
+
+  color: rgb(11, 12, 12);
+  display: inline;
+  font-family:'Audiowide', cursive;
+  font-size: 20px;
+  list-style-type: none;
+  overflow: auto;
+  top:200px;
+  left:0px;
+  
+}
+
+.sidenav2 {
+
+  color: rgb(11, 12, 12);
+  display: inline;
+  font-family:'Audiowide', cursive;
+  font-size: 15px;
+  list-style-type: none;
+  overflow: auto;
+  top:300px;
+  left:0px;
+  
+}
+
+.sidenav3 {
+
+  color: rgb(11, 12, 12);
+  display: inline;
+  font-family:'Audiowide', cursive;
+  font-size: 15px;
+  
+  list-style-type: none;
+  overflow: auto;
+  
+}
+
+.sidenav4 {
+
+  color: rgb(11, 12, 12);
+  display: inline;
+  font-family:'Audiowide', cursive;
+  font-size: 15px;
+  padding: 20px;
+  list-style-type: none;
+  overflow: auto;
+  
+}
+
+
+
+ul.sidenav li a {
+  color: red;
+  padding-inline: 10px 20px;
+  text-decoration: none;
+  box-shadow: 5px 5px 5px rgb(182, 188, 192);
+  text-shadow: 1px 1px 5px rgb(247, 246, 246);
+  
+}
+ 
+ul.sidenav li a.active {
+  color: rgb(12, 109, 201);
+  background: rgb(247, 247, 247);
+ 
+  
+}
+
+ul.sidenav li a:hover(.active) {
+  color: rgb(252, 252, 252);
+  background: rgb(182, 188, 192);
+  border: 6px rgb(154, 159, 163);
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgb(182, 188, 192);
+  text-shadow: 1px 1px 5px rgb(247, 246, 246);
+  transition: 1s all;
+}
+
+li {
+  
+  padding: 10px;
+}
+
 
 #container {
   display: inline-block;

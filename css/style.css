@@ -5,6 +5,15 @@ body {
     width: 1200px;
 }
 
+#background {
+
+    background-image:url(../assets/img/map.png);
+    height: 1180px;
+    width: 1920px;
+    position: relative;
+    z-index: -100;
+
+}
 header {
     
     float: left;
@@ -12,12 +21,6 @@ header {
         
 }
 
-#seattle {
-
-    background-image: initial;
-    height: 1180px;
-    width: 1920px;
-    z-index: -100;
 }
 
 #login {
@@ -93,7 +96,7 @@ button {
     height: 100px;
     margin-left: 40px;
     text-shadow: 3px 3px 5px rgb(247, 246, 246);
-    width: 440px;
+    
 
 }
 
@@ -107,6 +110,37 @@ h1 {
            
         
 }
+
+#onMaph1 {
+    color:rgb(12, 10, 10); 
+    display: inline;
+    font-family:'Audiowide', cursive;
+    font-size:80px;
+    overflow: auto;
+    padding-top: 0px;
+    text-align: center;
+    text-shadow: 7px 7px 1px rgba(247, 246, 246, 0);
+    top:0px;
+    left:1480px;
+    position: absolute;
+    z-index: 100;
+}
+
+#onMaph1 :hover(.active){
+    color:rgb(12, 10, 10); 
+    font-family:'Audiowide', cursive;
+    font-size:80px;
+    left:1480px;
+    padding-top: 0px;
+    text-align: center;
+    text-shadow: 7px 7px 1px rgba(247, 246, 246, 0);
+    top:0px;
+    position: absolute;
+    transition: 1s all;    
+    z-index: 100;
+}
+
+
 
 h2 {
     color:rgb(0, 0, 0); 
@@ -139,13 +173,11 @@ h4 {
 
 h5 {
 
-    clear: both;    
+     
     color:black;
     display: inline;
     font-size: 20px;
     font-family:'Uncial Antiqua', cursive; 
-    margin-left: 60px;
-    padding: 80px;
     text-align: left;
 
 }
@@ -163,8 +195,6 @@ h6 {
 
 p {
     color:rgb(5, 83, 173); 
-    
-       
     border-color: rgb(247, 7, 7);
     border-spacing: 2px;
     font-family:'Baloo Tamma', cursive;
@@ -174,32 +204,73 @@ p {
     width: 860px;
 }
 
+#barMap {
+
+    display: inline;
+    
+    overflow: auto;
+
+}
+
+
+.sidenav {
+
+    color: rgb(8, 125, 235);
+    display: inline;
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 18px;
+
+    height: 100%;
+
+    list-style-type: none;
+
+    margin-top: 50px;
+
+    overflow: auto;
+
+   
+
+    
+
+    width: 400px;
+}
+
 ul.sidenav li a {
     color: red;
-    display: block;
-    padding: 16px 16px;
+    display: inline;
+    height: 1000px;
+    padding: 40px; 
     text-decoration: none;
+    box-shadow: 5px 5px 5px rgb(182, 188, 192);
+    text-shadow: 1px 1px 5px rgb(247, 246, 246);
+    
 }
    
 ul.sidenav li a.active {
     color: rgb(12, 109, 201);
     background: rgb(247, 247, 247);
+    display: inline;
     
 }
   
-ul.sidenav li a:hover:not(.active) {
+ul.sidenav li a:hover(.active) {
     color: rgb(252, 252, 252);
     background: rgb(182, 188, 192);
     border: 6px rgb(154, 159, 163);
     border-radius: 20px;
     box-shadow: 5px 5px 5px rgb(182, 188, 192);
+    display: inline;
     text-shadow: 1px 1px 5px rgb(247, 246, 246);
     transition: 1s all;
 }
 
-img {
+li {
+    display: inline;
+    padding: 10px;
+}
 
-     
+.seattle {
+  
     
     background-color: rgba(126, 165, 190, 0);
     border: solid 30px rgb(95, 91, 91) ;
@@ -214,7 +285,7 @@ img {
     width:315px;
 }
 
-img:hover {
+.seattle:hover {
 
     background-color: rgb(116, 213, 243);
     border: solid 30px rgb(247, 56, 56) ;
