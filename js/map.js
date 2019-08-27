@@ -76,6 +76,8 @@ function updatePath() {
   redrawPath();
   var distanceInPx = totalPathDistance(path);
   console.log(`Pixel distance: ${distanceInPx}`);
+  var distanceInFeet = distanceInPx / 5.319;
+  console.log(`Feet: ${distanceInFeet}`);
 }
 
 function redrawPath() {
