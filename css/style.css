@@ -27,11 +27,11 @@ header {
 
 fieldset {
 
+    box-align: center;
     border-radius: 20px;
     box-shadow: 10px 10px 5px rgb(15, 15, 15);
-    float: center;
     font-size: 20px;
-    margin-left: 730px;
+    margin-left: 400px;
     text-align: center;
     width:400px;
 
@@ -50,7 +50,6 @@ input {
 label {
 
     background-color: rgba(119, 97, 97, 0);
-    
     font-family:'Audiowide', cursive;
     font-size: 40px;
     text-shadow: 3px 3px 5px rgb(247, 246, 246);
@@ -66,7 +65,7 @@ button {
     font-family:'Audiowide', cursive;
     font-size: 40px;
     height: 100px;
-    margin-left: 725px;
+    margin-left: 400px;
     text-shadow: 3px 3px 5px rgb(247, 246, 246);
     width: 500px;
 }
@@ -79,8 +78,7 @@ button {
     font-size: 44px;
     height: 100px;
     margin-top: 100px;
-    margin-left: 375px;
-    
+    margin-left: 0px;
     text-shadow: 3px 3px 3px rgb(247, 246, 246);
     width: 1200px;
 }
@@ -102,7 +100,7 @@ button {
 h1 {
     color:rgb(0, 0, 0); 
     font-family:'Audiowide', cursive;
-    font-size:100px;
+    font-size:80px;
     padding-top: 0px;
     text-align: center;
     text-shadow: 7px 7px 1px rgb(247, 246, 246);
@@ -211,9 +209,7 @@ img {
     margin: 2px;
     object-fit:scale-down;
     opacity: .7;
-    padding: 0px;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin: 0px 9px 0px 9px;
     text-shadow: 5px;
     width:315px;
 }
