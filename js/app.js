@@ -52,7 +52,7 @@ function newUser(event) {
 }
 
 
-formLogin.addEventListener('submit', newUser);
+// formLogin.addEventListener('submit', newUser);
 
 // walk.addEventListener('click', newActivity);
 
