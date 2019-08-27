@@ -1,14 +1,137 @@
-body {}
+body {
+        
+ 
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* #background { */
+
+  /* background-image:url(../assets/img/map.png);
+  height: 1180px;
+  width: 1920px;
+  position: relative;
+  z-index: -100;
+
+} */
+
+
+.map {
+
+  background-color: rgba(236, 10, 10, 0.473);
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px rgb(15, 15, 15);
+  font-family:'Audiowide', cursive;
+  font-size: 40px;
+  height: 100px;
+  margin-left: 40px;
+  text-shadow: 3px 3px 5px rgb(247, 246, 246);
+  
+
+}
+
+
+
+#onMaph1 {
+  color:rgb(12, 10, 10); 
+  display: inline;
+  font-family:'Audiowide', cursive;
+  font-size:50px;
+  padding-top: 0px;
+  text-align: left;
+  text-shadow: 7px 7px 1px rgba(247, 246, 246, 0);
+  top:0px;
+  left:450px;
+  position: absolute;
+  z-index: 100;
+}
+
+
+#barMap {
+
+  
+  height: 100%;
+  overflow: auto;
+  top: 100px;
+  position: absolute;
+  z-index: 2;
+
+}
+
+
+.sidenav1 {
+
+  color: rgb(11, 12, 12);
+  
+  font-family:'Audiowide', cursive;
+  font-size: 20px;
+  height: 150px;
+  list-style-type: none;
+  overflow: auto;
+  
+  z-index: 2;
+  
+}
+
+.sidenav2 {
+
+  color: rgb(11, 12, 12);
+  
+  font-family:'Audiowide', cursive;
+  font-size: 18px;
+  height: 150px;
+  list-style-type: none;
+  overflow: auto;
+  padding-top: 100px;
+  z-index: 2;
+  
+}
+
+.sidenav3 {
+
+  color: rgb(11, 12, 12);
+  
+  font-family:'Audiowide', cursive;
+  font-size: 18px;
+  height: 150px;
+  list-style-type: none;
+  overflow: auto;
+  padding-top: 100px;
+  z-index: 2;
+  
+}
+
+.sidenav4 {
+
+  color: rgb(11, 12, 12);
+  
+  font-family:'Audiowide', cursive;
+  font-size: 18px;
+  height: 150px;
+  list-style-type: none;
+  overflow: auto;
+  padding-top: 100px;
+  z-index: 2;
+  
+}
+
+
+
+li {
+  
+  padding: 30px;
+}
+
 
 #container {
   display: inline-block;
-  width: 1878px;
-  height: 1008px;
-  background: black;
+  width: 1920px;
+  height: 1080px;
+  background: rgba(0, 0, 0, 0);
   position: relative;
-  border: 5px solid black;
-  border-radius: 10px;
-  box-shadow: 0 5px 50px #333
+  top:0;
+  left:0;
+  
 }
 
 .img {
@@ -18,5 +141,7 @@ body {}
 
 #map_canvas {
   position: relative;
-  z-index: 2;
+  top:0;
+  left:0
+  z-index: 3;
 }
