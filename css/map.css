@@ -5,15 +5,15 @@ body {
   width: 100%;
 }
 
-#background {
+/* #background { */
 
-  background-image:url(../assets/img/map.png);
+  /* background-image:url(../assets/img/map.png);
   height: 1180px;
   width: 1920px;
   position: relative;
   z-index: -100;
 
-}
+} */
 
 
 .map {
@@ -68,6 +68,7 @@ body {
   overflow: auto;
   top: 100px;
   position: absolute;
+  z-index: 2;
 
 }
 
@@ -82,6 +83,7 @@ body {
   overflow: auto;
   top:200px;
   left:0px;
+  z-index: 2;
   
 }
 
@@ -95,6 +97,7 @@ body {
   overflow: auto;
   top:300px;
   left:0px;
+  z-index: 2;
   
 }
 
@@ -107,6 +110,7 @@ body {
   
   list-style-type: none;
   overflow: auto;
+  z-index: 2;
   
 }
 
@@ -119,6 +123,7 @@ body {
   padding: 20px;
   list-style-type: none;
   overflow: auto;
+  z-index: 2;
   
 }
 
@@ -158,13 +163,13 @@ li {
 
 #container {
   display: inline-block;
-  width: 1878px;
-  height: 1008px;
-  background: black;
+  width: 1920px;
+  height: 1080px;
+  background: rgba(0, 0, 0, 0);
   position: relative;
-  border: 5px solid black;
-  border-radius: 10px;
-  box-shadow: 0 5px 50px #333
+  top:0;
+  left:0;
+  
 }
 
 .img {
@@ -174,5 +179,7 @@ li {
 
 #map_canvas {
   position: relative;
-  z-index: 2;
+  top:0;
+  left:0
+  z-index: 3;
 }
