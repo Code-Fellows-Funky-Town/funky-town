@@ -1,0 +1,22 @@
+body {}
+
+#container {
+  display: inline-block;
+  width: 1878px;
+  height: 1008px;
+  background: black;
+  position: relative;
+  border: 5px solid black;
+  border-radius: 10px;
+  box-shadow: 0 5px 50px #333
+}
+
+.img {
+  position: absolute;
+  z-index: 1;
+}
+
+#map_canvas {
+  position: relative;
+  z-index: 2;
+}
