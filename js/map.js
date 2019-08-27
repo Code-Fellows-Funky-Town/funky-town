@@ -68,6 +68,13 @@ function onMouseleave(e) {
   paint = false;
 }
 
+/**
+ * This does whatever
+ *
+ * @param {*} x X coordinate
+ * @param {*} y
+ * @param {*} dragging
+ */
 function addClick(x, y, dragging) {
   clickX.push(x);
   clickY.push(y);
