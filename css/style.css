@@ -12,7 +12,6 @@ header {
         
 }
 
-}
 
 #login {
 
@@ -64,6 +63,14 @@ button {
     width: 480px;
 }
 
+
+button :hover {
+   
+    cursor: pointer;
+}
+
+
+
 .create {
 
     background-color: rgba(236, 10, 10, 0.473);
@@ -71,11 +78,14 @@ button {
     font-family:'Audiowide', cursive;
     font-size: 44px;
     height: 100px;
-    margin-top: 100px;
-    margin-left: 0px;
+    margin-top: 50px;
+    margin-left: 380px;
     text-shadow: 3px 3px 3px rgb(247, 246, 246);
-    width: 1200px;
+    width: 480px;
 }
+
+
+
 
 .map {
 
@@ -117,9 +127,10 @@ h3 {
     
     color:black; 
     font-family:'Audiowide', cursive;
-    margin-top: 40px;
+    font-size: 30px;
+    padding-top: 20px;
     text-align: center;
-    width: 1000px;
+    
 
 }
 
@@ -184,9 +195,11 @@ li {
     margin: 2px;
     object-fit:scale-down;
     opacity: .7;
+    position: relative;
     margin: 0px 9px 0px 9px;
     text-shadow: 5px;
     width:315px;
+
 }
 
 .seattle:hover {
@@ -200,8 +213,13 @@ li {
     box-shadow: 5px 5px 5px rgb(86, 136, 230);
     transition-delay: 0.5s;
     transition: 1s all;
-
 }
+
+
+
+
+
+
 
 
 #myVideo {
