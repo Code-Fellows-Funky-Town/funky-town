@@ -1,19 +1,66 @@
 body {
 
-
   margin: 0 auto;
   width: 100%;
+  
 }
 
-/* #background { */
+h1 {
+  color:rgb(0, 0, 0); 
+  font-family:'Audiowide', cursive;
+  font-size:80px;
+  padding-top: 0px;
+  text-align: center;
+  text-shadow: 7px 7px 1px rgb(247, 246, 246);
+         
+      
+}
 
-/* background-image:url(../assets/img/map.png);
-  height: 1180px;
-  width: 1920px;
-  position: relative;
-  z-index: -100;
+section {
+  color:rgb(12, 10, 10); 
+  display: inline;
+  font-family:'Audiowide', cursive;
+  font-size:20px;
+  margin: 0px;
+  padding-top: 0px;
+  text-align: left;
+  text-shadow: 7px 7px 1px rgba(247, 246, 246, 0);
+  top:5px;
+  left:280px;
+  position: absolute;
+  z-index: 100;
+}
 
-} */
+.mapButton {
+  font-size : 20px;
+  height:40px;
+  margin: 0px;
+  width: 150px;
+}
+
+.mapButton2 {
+  font-size : 20px;
+  height:40px;
+  position: absolute;
+  margin: 0px;
+  width: 150px;
+}
+
+
+
+#mapPicture {
+
+  
+  height: 150px;
+  width:150px;
+  left:1770px;
+  position: absolute;
+  
+  top:0px;
+  z-index: 100;
+
+
+}
 
 
 .map {
@@ -49,11 +96,11 @@ body {
 
 #barMap {
 
-
-  height: 100%;
-  overflow: auto;
-  top: 100px;
+  background-color: rgba(155, 147, 136, 0.288);
+  height: 1080px;
   position: absolute;
+  overflow: auto;
+  top: 0px;
   z-index: 2;
 
 }
@@ -68,7 +115,7 @@ body {
   height: 150px;
   list-style-type: none;
   overflow: auto;
-
+  margin-top: 50px;
   z-index: 2;
 
 }
