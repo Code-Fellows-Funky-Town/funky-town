@@ -1,0 +1,25 @@
+
+#greeting>h2 {
+  color:red;
+  font-size: 40px;
+  padding: 20px;
+  
+}
+
+#enter {
+
+  padding: 20px;
+}
+
+#userVideo {
+  height: auto;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  opacity: 0.7;
+  position: fixed;
+  right: 0; 
+  width: auto; 
+  z-index: -100;
+  
+}
