@@ -1,13 +1,13 @@
 body {
-        
- 
+
+
   margin: 0 auto;
   width: 100%;
 }
 
 /* #background { */
 
-  /* background-image:url(../assets/img/map.png);
+/* background-image:url(../assets/img/map.png);
   height: 1180px;
   width: 1920px;
   position: relative;
@@ -21,35 +21,35 @@ body {
   background-color: rgba(236, 10, 10, 0.473);
   border-radius: 20px;
   box-shadow: 10px 10px 5px rgb(15, 15, 15);
-  font-family:'Audiowide', cursive;
+  font-family: 'Audiowide', cursive;
   font-size: 40px;
   height: 100px;
   margin-left: 40px;
   text-shadow: 3px 3px 5px rgb(247, 246, 246);
-  
+
 
 }
 
 
 
 #onMaph1 {
-  color:rgb(12, 10, 10); 
+  color: rgb(12, 10, 10);
   display: inline;
-  font-family:'Audiowide', cursive;
-  font-size:50px;
+  font-family: 'Audiowide', cursive;
+  font-size: 50px;
   padding-top: 0px;
   text-align: left;
   text-shadow: 7px 7px 1px rgba(247, 246, 246, 0);
-  top:0px;
-  left:450px;
+  top: 0px;
+  left: 450px;
   position: absolute;
-  z-index: 100;
+  z-index: 1;
 }
 
 
 #barMap {
 
-  
+
   height: 100%;
   overflow: auto;
   top: 100px;
@@ -62,63 +62,63 @@ body {
 .sidenav1 {
 
   color: rgb(11, 12, 12);
-  
-  font-family:'Audiowide', cursive;
+
+  font-family: 'Audiowide', cursive;
   font-size: 20px;
   height: 150px;
   list-style-type: none;
   overflow: auto;
-  
+
   z-index: 2;
-  
+
 }
 
 .sidenav2 {
 
   color: rgb(11, 12, 12);
-  
-  font-family:'Audiowide', cursive;
+
+  font-family: 'Audiowide', cursive;
   font-size: 18px;
   height: 150px;
   list-style-type: none;
   overflow: auto;
   padding-top: 100px;
   z-index: 2;
-  
+
 }
 
 .sidenav3 {
 
   color: rgb(11, 12, 12);
-  
-  font-family:'Audiowide', cursive;
+
+  font-family: 'Audiowide', cursive;
   font-size: 18px;
   height: 150px;
   list-style-type: none;
   overflow: auto;
   padding-top: 100px;
   z-index: 2;
-  
+
 }
 
 .sidenav4 {
 
   color: rgb(11, 12, 12);
-  
-  font-family:'Audiowide', cursive;
+
+  font-family: 'Audiowide', cursive;
   font-size: 18px;
   height: 150px;
   list-style-type: none;
   overflow: auto;
   padding-top: 100px;
   z-index: 2;
-  
+
 }
 
 
 
 li {
-  
+
   padding: 30px;
 }
 
@@ -127,21 +127,21 @@ li {
   display: inline-block;
   width: 1920px;
   height: 1080px;
-  background: rgba(0, 0, 0, 0);
+  /* background: rgb(0, 0, 0, 0); */
   position: relative;
-  top:0;
-  left:0;
-  
+  top: 0;
+  left: 0;
+
 }
 
 .img {
   position: absolute;
-  z-index: 1;
+  z-index: -1;
 }
 
 #map_canvas {
   position: relative;
-  top:0;
-  left:0
+  top: 0;
+  left: 0;
   z-index: 3;
 }
