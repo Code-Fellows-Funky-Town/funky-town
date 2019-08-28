@@ -8,11 +8,12 @@ var enter = document.getElementById('enter');
 var currentUser = JSON.parse(localStorage.getItem('userId'));
 var userEmail = 'user-' + currentUser.email;
 
-function User(name, email, age, weight) {
-  this.name = name;
-  this.email = email;
-  this.age = age;
-  this.weight = weight;
+function User(name, email, age, currentWeight, targetWeight) {
+    this.name = name;
+    this.email = email;
+    this.age = age;
+    this.currentWeight = currentWeight;
+    this.targetWeight = targetWeight;
 }
 
 // TODO: SOC; event handlers should be on page specific script, then call.
@@ -22,7 +23,8 @@ function updateUser(e) {
     name: e.target.name.value,
     email: e.target.email.value,
     age: parseInt(e.target.age.value),
-    weight: parseInt(e.target.weight.value)
+    currentWeight: parseInt(e.target.currentWeight.value),
+    targetWeight: parseInt(e.target.targetWeight.value),
   };
   // TODO: Objects should update local storage with a single method for that specific purpose.
   localStorage.setItem('user-' + userData.email, JSON.stringify(userData));
@@ -34,20 +36,24 @@ function newUser(e) {
   var name = e.target.name.value;
   var email = e.target.email.value;
   var age = parseInt(e.target.age.value);
-  var weight = parseInt(e.target.weight.value);
-  var newUser = new User(name, email, age, weight);
+  var currentWeight = parseInt(e.target.currentWeight.value);
+  var targetWeight = parseInt(e.target.targetWeight.value);
+  var newUser = new User(name, email, age, currentWeight, targetWeight);
+
   // TODO: Objects should update local storage with a single method for that specific purpose.
   localStorage.setItem('user-' + newUser.email, JSON.stringify(newUser));
   location.href = 'map.html';
 }
 
+
 // Retrieves the user instance based on the entered id and auto fills the form
 function autoFill() {
   // TODO: Works but this is brittle.  For example what is the form is re-ordered?  This code would also have to be changed.  Would future you know to do that?
-  document.getElementsByTagName('input')[0].value = userData.name;
-  document.getElementsByTagName('input')[1].value = userData.email;
-  document.getElementsByTagName('input')[2].value = userData.age;
-  document.getElementsByTagName('input')[3].value = userData.weight;
+    document.getElementsByTagName('input')[0].value = userData.name;
+    document.getElementsByTagName('input')[1].value = userData.email;
+    document.getElementsByTagName('input')[2].value = userData.age;
+    document.getElementsByTagName('input')[3].value = userData.currentWeight;
+    document.getElementsByTagName('input')[4].value = userData.targetWeight;
 }
 
 // Compares email against the localStorage to find an existing user instance
