@@ -2,78 +2,79 @@
 <html>
 
 <head>
-    <title>map</title>
-    <link href="https://fonts.googleapis.com/css?family=Audiowide|Baloo+Tamma|Cabin+Sketch|Dorsa|Fredericka+the+Great|Frijole|Griffy
+  <title>map</title>
+  <!-- TODO: Limit to only fonts used -->
+  <link href="https://fonts.googleapis.com/css?family=Audiowide|Baloo+Tamma|Cabin+Sketch|Dorsa|Fredericka+the+Great|Frijole|Griffy
         |Gugi|Jacques+Francois+Shadow|Kalam|Kaushan+Script|Londrina+Outline|Luckiest+Guy|Monofett|Montserrat+Subrayada|Nosifer|Pacifico
         |Revalia|Rock+Salt|Sedgwick+Ave+Display|Sirin+Stencil|Six+Caps|Uncial+Antiqua|Vast+Shadow&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/map.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/map.css">
 </head>
 
 <body>
 
-    <header>
-   
+  <header>
 
-        <h1 id="onMaph1"> CALORIES COUNTDOWN SEATTLITES</h1>
-    </header>
-    
-    <main>
-        <section>
-            <button class ="mapButton" onclick="window.location.href = '../index.html';">MENU</button>           
-            <button class ="mapButton2" onclick="window.location.href = '../pages/stat.html';">STATS</button>
-        </section> 
 
-        <div id="container">
-             <img class='img' src="../assets/img/map.png" alt="" />
-            <canvas id="map_canvas" width="1920" height="1080"></canvas>
-        </div>
-      
-        <div id="barMap">
-    
-            <ul class = "sidenav1">
-                <li>HELLO #NAME!<br /></li>
-                <li>AGE: <br /></li>
-                <li>CURRENT WEIGHT: <br /></li>
-                <li>TARGET WEIGHT: <br /></li>
-            </ul>
-        
-        
-            <ul class = "sidenav2">
-                <li>WALKING<br /></li>
-                <li>EST. SPENT<br /></li>
-                <li>TIME: <br /></li>
-                <li>CALORIES: <br /></li>
-            </ul>
-        
-            <ul class = "sidenav3">
-                <li>RUNNING<br /></li>
-                <li>EST. SPENT<br /></li>
-                <li>TIME: <br /></li>
-                <li>CALORIES: <br /></li>
-            </ul>
-        
-        
-            <ul class = "sidenav4">
-                <li>BIKING<br /></li>
-                <li>EST. SPENT<br /></li>
-                <li>TIME: <br /></li>
-                <li>CALORIES: <br /></li>
-            </ul>
-        </div>
-    
-        
-    </div> 
-    <img id = "mapPicture" src="../assets/gif/s200w.webp" alt="s1">
-    </main>
+    <h1 id="onMaph1"> CALORIES COUNTDOWN SEATTLEITES</h1>
+  </header>
 
-    <footer>
+  <main>
+    <section>
+      <button class="mapButton" onclick="window.location.href = '../index.html';">MENU</button>
+      <button class="mapButton2" onclick="window.location.href = '../pages/stat.html';">STATS</button>
+    </section>
 
-    </footer>
+    <div id="container">
+      <img class='img' src="../assets/img/map.png" alt="" />
+      <canvas id="map_canvas" width="1920" height="1080"></canvas>
+    </div>
 
-    <script src="../js/app.js"></script>
-    <script src="../js/map.js"></script>
+    <div id="barMap">
+
+      <ul class="sidenav1">
+        <li>HELLO #NAME!<br /></li>
+        <li>AGE: <br /></li>
+        <li>CURRENT WEIGHT: <br /></li>
+        <li>TARGET WEIGHT: <br /></li>
+      </ul>
+
+
+      <ul class="sidenav2">
+        <li>WALKING<br /></li>
+        <li>EST. SPENT<br /></li>
+        <li>TIME: <br /></li>
+        <li>CALORIES: <br /></li>
+      </ul>
+
+      <ul class="sidenav3">
+        <li>RUNNING<br /></li>
+        <li>EST. SPENT<br /></li>
+        <li>TIME: <br /></li>
+        <li>CALORIES: <br /></li>
+      </ul>
+
+
+      <ul class="sidenav4">
+        <li>BIKING<br /></li>
+        <li>EST. SPENT<br /></li>
+        <li>TIME: <br /></li>
+        <li>CALORIES: <br /></li>
+      </ul>
+    </div>
+
+
+    </div>
+    <img id="mapPicture" src="../assets/gif/s200w.webp" alt="s1">
+  </main>
+
+  <footer>
+
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script src="../js/map.js"></script>
 </body>
 
 </html>

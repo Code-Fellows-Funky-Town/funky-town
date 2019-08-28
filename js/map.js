@@ -4,7 +4,11 @@ var canvas = document.getElementById("map_canvas");
 var ctx = canvas.getContext("2d");
 
 var path = [];
+
+// paint is set to true if mouse movement on canvas should paint, false if not
 var paint;
+
+
 
 function resetPath() {
   path = [];
