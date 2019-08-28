@@ -21,6 +21,7 @@ function User(name, email, age, weight) {
     this.weight = weight;
 }
 
+//object constructer for activities
 
 function Activity(type, distance) {
     this.type = type;
@@ -30,14 +31,15 @@ function Activity(type, distance) {
     listOfActivities.push(this);
 }
 
+//function takes in activity type and distance and sends the data to local storage
 function newActivity() {
     var type = typeTest;
-    // var type = event.target.id;
     var distance = distanceTest;
     new Activity(type, distance);
     localStorage.setItem('activities-' + currentUser.email, JSON.stringify(listOfActivities));
 }
 
+// function for the form to create new user
 function newUser(event) {
     event.preventDefault();
     var name = event.target.name.value;
@@ -51,11 +53,13 @@ function newUser(event) {
     console.log(currentUser);
 }
 
-
+//form event listenser that is use to fire the newUsers function when the button is clicked on
 formLogin.addEventListener('submit', newUser);
 
 // walk.addEventListener('click', newActivity);
 
+//duration prototype uses a for loop to find the activity type being used. once we know the type we know the speed of that activity. 
+// from dividing the distance traveled from the speed we can find out the duration of the activity
 Activity.prototype.duration = function() {
     var speed = 0;
     for (var i = 0; i < excersiceProperties.length; i++) {
@@ -67,9 +71,10 @@ Activity.prototype.duration = function() {
 };
 
 
-
-// Calories calculation test
-
+//the calorieCount prototype uses a for loop to run throught the exersice array to get the type of exercise being use.
+//afer knowing the exersice we can use the 'met' value. Wtith the met value we multiply it by the users weight. 
+//Divide that by 2.2 (because we are trying to get the wight in pounds vs kilos). We then multiply that number by the duration of the exersice.
+// that number will give us the calories burned during the exersice.
 Activity.prototype.calorieCount = function() {
     var met = 0;
     for (var i = 0; i < excersiceProperties.length; i++) {
