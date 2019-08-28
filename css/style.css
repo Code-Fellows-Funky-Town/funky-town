@@ -29,7 +29,6 @@ fieldset {
     text-align: center;
     width:380px;
 
-
 }
 
 input {
@@ -88,8 +87,6 @@ button :hover {
 }
 
 
-
-
 .map {
 
     background-color: rgba(236, 10, 10, 0.473);
@@ -110,18 +107,16 @@ h1 {
     font-size:80px;
     padding-top: 0px;
     text-align: center;
-    text-shadow: 7px 7px 1px rgb(247, 246, 246);
-           
-        
+    text-shadow: 7px 7px 1px rgb(247, 246, 246);      
+      
 }
-
 
 
 h2 {
     color:rgb(0, 0, 0); 
     font-family:'Audiowide', cursive;
     font-size: 60px;
-    padding-top: 400px;
+    padding-top: 100px;
     text-align: center;
     text-shadow: 3px 3px 3px rgb(247, 246, 246);
 
@@ -130,56 +125,22 @@ h3 {
     
     color:black; 
     font-family:'Audiowide', cursive;
-    font-size: 30px;
+    font-size: 40px;
     padding-top: 20px;
     text-align: center;
     
 
 }
 
-h4 {
-    color:black; 
-    font-family:Arial, Helvetica, sans-serif; 
-    margin-left: 0px;
-    text-align: left;
-    width: 500px;
-    
-    
-}
-
-h5 {
-
-     
-    color:black;
-    display: inline;
-    font-size: 20px;
-    font-family:'Uncial Antiqua', cursive; 
-    text-align: left;
+#client {
+    color:rgb(0, 0, 0); 
+    font-family:'Audiowide', cursive;
+    font-size: 60px;
+    padding-top: 400px;
+    text-align: center;
+    text-shadow: 3px 3px 3px rgb(247, 246, 246);
 
 }
-    
-h6 {
-    color:black; 
-    font-family:Arial, Helvetica, sans-serif; 
-    margin-left: 5px;
-    text-align: left;
-    width: 300px;
-   
-    
-    
-}
-
-p {
-    color:rgb(5, 83, 173); 
-    border-color: rgb(247, 7, 7);
-    border-spacing: 2px;
-    font-family:'Baloo Tamma', cursive;
-    padding-left: 180px;
-    text-align: justify;
-    text-shadow: 1px 1px 3px rgb(247, 246, 246);
-    width: 860px;
-}
-
 
 
 li {
@@ -217,12 +178,6 @@ li {
     transition-delay: 0.5s;
     transition: 1s all;
 }
-
-
-
-
-
-
 
 
 #myVideo {

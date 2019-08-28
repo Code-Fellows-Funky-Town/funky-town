@@ -137,17 +137,28 @@ var myChart = new Chart(ctx, {
         'rgba(255, 206, 86, 1)',
       ],
       borderWidth: 1
+      
     }]
   },
   options: {
     scales: {
+      xAxes: [{
+        ticks: {
+          fontColor: 'black',
+          fontSize: 30,
+          fontStyle: 'bold'
+        }
+      }],
       yAxes: [{
         ticks: {
-          beginAtZero: true
+          beginAtZero: true,
+          fontSize: 30,
+          fontColor: 'black',
+          fontStyle: 'bold'
         }
       }]
     }
-  }
+  },
 });
 
 
@@ -174,9 +185,19 @@ var myChart = new Chart(ctx, {
   },
   options: {
     scales: {
+      xAxes: [{
+        ticks: {
+          fontColor: 'black',
+          fontSize: 30,
+          fontStyle: 'bold'
+        }
+      }],
       yAxes: [{
         ticks: {
-          beginAtZero: true
+          beginAtZero: true,
+          fontSize: 30,
+          fontColor: 'black',
+          fontStyle: 'bold'
         }
       }]
     }
