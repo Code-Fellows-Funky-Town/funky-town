@@ -1,14 +1,20 @@
 'use strict';
 
+// Activity object references for candidate activities.  
+// Of these the user selected activity will be appended to the current user's activity list in the User object .
+var walkActivity = {};
+var runActivity = {};
+var bikeActivity = {};
+
+// Global variables for route tracing
 var canvas = document.getElementById("map_canvas");
 var ctx = canvas.getContext("2d");
-
 var path = [];
 
 // paint is set to true if mouse movement on canvas should paint, false if not
 var paint;
 
-
+// Functions for route changes that require a redraw and stats change -------------------------
 
 function resetPath() {
   path = [];
@@ -16,8 +22,7 @@ function resetPath() {
 }
 
 function endPath() {
-  // TODO: endPath
-
+  // TODO: endPath if we need it.  Strip if we don't...
   updatePath();
 }
 
@@ -29,6 +34,8 @@ function undoPath() {
   }
   updatePath();
 }
+
+// Canvas drawing event handlers -------------------------------------------------------------------
 
 function onContextMenu(e) {
   e.preventDefault();
@@ -66,6 +73,8 @@ function onMouseleave(e) {
   paint = false;
 }
 
+// Path drawing functions used by the canvas mouse event handlers -------------------------------------
+
 /**
  * Add a new point to the end of the path array.
  * 
@@ -76,14 +85,32 @@ function addPointToPath(x, y) {
   path.push([x, y]);
 }
 
+/**
+ * Called after any change to the route path to update the the page rendering and distance information.
+ * This pixel to mile conversion factor is applied here before calling the distance property setter on the Activity 
+ * objects.
+ */
 function updatePath() {
   redrawPath();
   var distanceInPx = totalPathDistance(path);
   var distanceInFeet = distanceInPx * 5.265;
   var distanceInMiles = distanceInFeet / 5280;
   console.log(`Pixel distance: ${distanceInPx.toFixed(3)}  Feet: ${distanceInFeet.toFixed(3)}  Miles: ${distanceInMiles.toFixed(3)}`);
+  // TODO: Set the activity distances!!
+
+  
 }
 
+// Actual rendering to the canvas ----------------------------------------------------------------------------
+
+/**
+ * Clears the canvas and draws the current path.
+ * 
+ * For simple operation this is called after every update to the path, completely redrawing the path.
+ * Although it would be more efficient to draw only what is new, this seems to work fast enough
+ * for our purposes.
+ *
+ */
 function redrawPath() {
   console.time('redrawPath');
   // Clear the canvas
@@ -103,27 +130,21 @@ function redrawPath() {
   console.timeEnd('redrawPath');
 }
 
-/**
- * From: https: //stackoverflow.com/questions/2368784/draw-on-html5-canvas-using-a-mouse
- * 
- * Here 's the most straightforward way to create a drawing application with canvas:
-
- 1. Attach a mousedown, mousemove, and mouseup event listener to the canvas DOM
-
- 2. on mousedown, get the mouse coordinates, and use the moveTo() method to position your drawing cursor and the beginPath() method to begin a new drawing path.
-
- 3. on mousemove, continuously add a new point to the path with lineTo(), and color the last segment with stroke().
- on mouseup, set a flag to disable the drawing.
- 4. From there, you can add all kinds of other features like giving the user the ability to choose a line thickness, color, brush strokes, and even layers.
- *
- */
-
 // Geometry Helper Functions ----------------------------------------
 
-function translatePath(path, x, y) {
+/**
+ * Shifts the path by the given offset.
+ * 
+ * This function would be used if a sliding map is implemented.
+ *
+ * @param {*} path
+ * @param {*} xOffset
+ * @param {*} yOffset
+ */
+function translatePath(path, xOffset, yOffset) {
   for (var i = 0; i < path.length; i++) {
-    path[i][0] += x;
-    path[i][1] += y;
+    path[i][0] += xOffset;
+    path[i][1] += yOffset;
   }
 }
 
@@ -131,7 +152,7 @@ function translatePath(path, x, y) {
  * Calculate the total length of the given path.
  *
  * @param {*} path
- * @returns
+ * @returns Total path length
  */
 function totalPathDistance(path) {
   var len = 0;
@@ -156,6 +177,14 @@ function totalPathDistance(path) {
   return len;
 }
 
+/**
+ * Remove segments from the tail end of the given path.
+ *
+ * @param {*} path Reference to the path that will be shortened
+ * @param {*} distance Length to be removed
+ * @param {*} atLeast If true, remove the next remaining segment that would exceed the given distance to remove, otherwise leave that segment.
+ * 
+ */
 function removeDistance(path, distance, atLeast) {
   var len = 0;
   var x = 0;
@@ -192,85 +221,28 @@ function removeDistance(path, distance, atLeast) {
   path.splice(path.length - remove);
 }
 
-/**
- * Ramer - Douglas - Peucker Line Simplification Algorithm
- * 
- * Reduces the number of points used to define the shape of the a line. 
- * 
- * From rosettacode.org https://rosettacode.org/wiki/Ramer-Douglas-Peucker_line_simplification
- * 
- * TODO: Re-write as ES5 code and remove if we don't use
- *
- * @param {*} l
- * @param {*} epsilon
- * @returns
- */
-const RDP = (l, epsilon) => {
-  const last = l.length - 1;
-  const p1 = l[0];
-  const p2 = l[last];
-  const x21 = p2.x - p1.x;
-  const y21 = p2.y - p1.y;
+// Dialog event handlers ---------------------------------
 
-  const [dMax, x] = l.slice(1, last)
-    .map(p => Math.abs(y21 * p.x - x21 * p.y + p2.x * p1.y - p2.y * p1.x))
-    .reduce((p, c, i) => {
-      const v = Math.max(p[0], c);
-      return [v, v === p[0] ? p[1] : i + 1];
-    }, [-1, 0]);
+function onActivityClick(e) {
+  var activityType = e.target.id;
+  var selectedActivity = {};
 
-  if (dMax > epsilon) {
-    return [...RDP(l.slice(0, x + 1), epsilon), ...RDP(l.slice(x), epsilon).slice(1)];
+  switch (activityType) {
+    case 'walk':
+      selectedActivity = walkActivity;
+      break;
+    case 'run':
+      selectedActivity = runActivity;
+      break;
+    case 'bike':
+      selectedActivity = bikeActivity;
+      break;
   }
-  return [l[0], l[last]]
-};
-
-
-function testRDP() {
-  const points = [{
-      x: 0,
-      y: 0
-    },
-    {
-      x: 1,
-      y: 0.1
-    },
-    {
-      x: 2,
-      y: -0.1
-    },
-    {
-      x: 3,
-      y: 5
-    },
-    {
-      x: 4,
-      y: 6
-    },
-    {
-      x: 5,
-      y: 7
-    },
-    {
-      x: 6,
-      y: 8.1
-    },
-    {
-      x: 7,
-      y: 9
-    },
-    {
-      x: 8,
-      y: 9
-    },
-    {
-      x: 9,
-      y: 9
-    }
-  ];
-  console.log(RDP(points, 1));
+  currentUser.AddActivity(selectedActivity);
+  location.href('stat.html');
 }
 
+// Page setup functions -----------------------------------
 
 function initMapCanvas() {
   canvas.addEventListener('mousedown', onMousedown);
@@ -280,10 +252,22 @@ function initMapCanvas() {
   canvas.addEventListener('contextmenu', onContextMenu)
 }
 
+function initActivityButtonHandlers() {
+  walk.addEventListener('click', onActivityClick);
+  run.addEventListener('click', onActivityClick);
+  bike.addEventListener('click', onActivityClick);
+}
+
+function initTemplateActivities() {
+  walkActivity = new Activity('walk');
+  runActivity = new Activity('run');
+  bikeActivity = new Activity('bike');
+}
+
 function initMapPage() {
   console.time('initMapPage');
   initMapCanvas();
-
+  initTemplateActivities();
   console.timeEnd('initMapPage');
 }
 
