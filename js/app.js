@@ -5,6 +5,42 @@ var walk = document.getElementById('walk');
 var run = document.getElementById('run');
 var bike = document.getElementById('bike');
 
+var currentUser = {};
+
+function User(userKey, name, email) {
+  var obj = JSON.parse(localStorage.getItem(userKey));
+  if (obj) {
+    this.name = obj.name;
+    this.email = obj.email;
+    this.age = obj.age;
+    this.currentWeight = obj.currentWeight;
+    this.targetWeight = obj.targetWeight;
+  } else {
+    this.name = name;
+    this.email = email;
+  }
+}
+
+User.prototype.exists = function() {
+  return (typeof this.currentWeight === 'number');
+};
+
+User.prototype.saveToLocalStorage = function() {
+  var userData = {
+    name: this.name,
+    email: this.email,
+    age: this.age,
+    targetWeight: this.targetWeight,
+    currentWeight: this.currentWeight,
+  };
+ 
+  localStorage.setItem('user-' + userData.email, JSON.stringify(userData));
+};
+
+Activity.prototype.saveToLocalStorage = function() {
+
+};
+
 var listOfActivities = [];
 var currentUser = {};
 var exerciseProperties = [
@@ -55,6 +91,14 @@ function newActivity() {
 }
 
 // TODO: SOC; page specific code should be in the page specific JS file.
-walk.addEventListener('click', newActivity);
-run.addEventListener('click', newActivity);
-bike.addEventListener('click', newActivity);
+// walk.addEventListener('click', newActivity);
+// run.addEventListener('click', newActivity);
+// bike.addEventListener('click', newActivity);
+
+function initCurrentUser() {
+  var obj = JSON.parse(localStorage.getItem('userId'));
+  var userKey = 'user-' + obj.email;
+  currentUser = new User(userKey, obj.name, obj.email);
+}
+
+initCurrentUser();
