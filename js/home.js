@@ -11,6 +11,7 @@ function storeUserCheck(e) {
     email: e.target.email.value
   };
   localStorage.setItem('userId', JSON.stringify(userCheck));
+  location.href = 'pages/user.html';
 }
 
 // event listner that waits for user input
