@@ -75,10 +75,13 @@ function addPointToPath(x, y) {
 function updatePath() {
   redrawPath();
   var distanceInPx = totalPathDistance(path);
-  console.log(`Pixel distance: ${distanceInPx}`);
+  var distanceInFeet = distanceInPx * 5.265;
+  var distanceInMiles = distanceInFeet / 5280;
+  console.log(`Pixel distance: ${distanceInPx.toFixed(3)}  Feet: ${distanceInFeet.toFixed(3)}  Miles: ${distanceInMiles.toFixed(3)}`);
 }
 
 function redrawPath() {
+  console.time('redrawPath');
   // Clear the canvas
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   if (path.length > 0) {
@@ -93,34 +96,7 @@ function redrawPath() {
     }
     ctx.stroke();
   }
-}
-
-/**
-* From 'CREATE A DRAWING APP WITH HTML5 CANVAS AND JAVASCRIPT'
-by William Malone
-* 
-* http: //www.williammalone.com/articles/create-html5-canvas-javascript-drawing-app/
-*
-*/
-function redrawX() {
-  // Clear the canvas
-  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-
-  ctx.strokeStyle = "#ee2211";
-  ctx.lineJoin = "round";
-  ctx.lineWidth = 4;
-
-  for (var i = 0; i < clickX.length; i++) {
-    ctx.beginPath();
-    if (clickDrag[i] && i) {
-      ctx.moveTo(clickX[i - 1], clickY[i - 1]);
-    } else {
-      ctx.moveTo(clickX[i], clickY[i]);
-    }
-    ctx.lineTo(clickX[i], clickY[i]);
-    ctx.closePath();
-    ctx.stroke();
-  }
+  console.timeEnd('redrawPath');
 }
 
 /**
@@ -139,6 +115,13 @@ function redrawX() {
  */
 
 // Geometry Helper Functions ----------------------------------------
+
+function translatePath(path, x, y) {
+  for (var i = 0; i < path.length; i++) {
+    path[i][0] += x;
+    path[i][1] += y;
+  }
+}
 
 /**
  * Calculate the total length of the given path.
@@ -293,9 +276,11 @@ function initMapCanvas() {
   canvas.addEventListener('contextmenu', onContextMenu)
 }
 
-function testMap() {
-  console.log('testMap');
+function initMapPage() {
+  console.time('initMapPage');
+  initMapCanvas();
+
+  console.timeEnd('initMapPage');
 }
 
-testMap();
-initMapCanvas();
+initMapPage();
