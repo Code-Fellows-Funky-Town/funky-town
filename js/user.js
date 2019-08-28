@@ -21,6 +21,7 @@ function updateUser(e) {
     weight: parseInt(e.target.weight.value)
   };
   localStorage.setItem('user-' + userData.email, JSON.stringify(userData));
+  location.href = 'map.html';
 }
 
 function newUser(e) {
@@ -31,6 +32,7 @@ function newUser(e) {
   var weight = parseInt(e.target.weight.value);
   var newUser = new User(name, email, age, weight);
   localStorage.setItem('user-' + newUser.email, JSON.stringify(newUser));
+  location.href = 'map.html';
 }
 
 // Retrieves the user instance based on the entered id and auto fills the form
@@ -63,3 +65,4 @@ else {
   document.getElementsByTagName('input')[1].value = currentUser.email;
   enter.addEventListener('submit', newUser);
 }
+
