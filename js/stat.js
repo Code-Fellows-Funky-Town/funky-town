@@ -66,14 +66,14 @@ function renderCalorieReport() {
         label: 'Total Calories Burnt',
         data: dataCalories,
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
+          'rgba(255, 99, 132, 0.6)',
+          'rgba(54, 162, 235, 0.6)',
+          'rgba(0, 100, 0, 0.6)',
         ],
         borderColor: [
           'rgba(255, 99, 132, 1)',
           'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
+          'rgba(0, 100, 0, 1)',
         ],
         borderWidth: 1
       }]
@@ -101,14 +101,14 @@ function renderDistanceReport() {
         label: 'Total Distance Traveled',
         data: dataDistance,
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
+          'rgba(255, 99, 132, 0.6)',
+          'rgba(54, 162, 235, 0.6)',
+          'rgba(0, 100, 0, 0.6)',
         ],
         borderColor: [
           'rgba(255, 99, 132, 1)',
           'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
+          'rgba(0, 100, 0, 1)',
         ],
         borderWidth: 1
       }]
