@@ -7,29 +7,28 @@ var enter = document.getElementById('enter');
 
 function onSubmitUpdateUser(e) {
   e.preventDefault();
-  currentUser = {
-    name: e.target.name.value,
-    email: e.target.email.value,
-    age: parseInt(e.target.age.value),
-    currentWeight: parseInt(e.target.currentWeight.value),
-    targetWeight: parseInt(e.target.targetWeight.value),
-  };
+  var cu = currentUser;
+  cu.name = e.target.name.value;
+  cu.email = e.target.email.value;
+  cu.age = parseInt(e.target.age.value);
+  cu.currentWeight = parseInt(e.target.currentWeight.value);
+  cu.targetWeight = parseInt(e.target.targetWeight.value);
 
-  currentUser.saveToLocalStorage();
+  cu.saveToLocalStorage();
   location.href = 'map.html';
 }
 
-function onSubmitNewUser(e) {
-  e.preventDefault();
-  var name = e.target.name.value;
-  var email = e.target.email.value;
-  var age = parseInt(e.target.age.value);
-  var currentWeight = parseInt(e.target.currentWeight.value);
-  var targetWeight = parseInt(e.target.targetWeight.value);
-  new User(name, email, age, currentWeight, targetWeight);
+// function onSubmitNewUser(e) {
+//   e.preventDefault();
+//   var name = e.target.name.value;
+//   var email = e.target.email.value;
+//   var age = parseInt(e.target.age.value);
+//   var currentWeight = parseInt(e.target.currentWeight.value);
+//   var targetWeight = parseInt(e.target.targetWeight.value);
+//   new User(name, email, age, currentWeight, targetWeight);
 
-  location.href = 'map.html';
-}
+//   location.href = 'map.html';
+// }
 
 
 // Retrieves the user instance based on the entered id and auto fills the form
@@ -53,16 +52,14 @@ function userPageInit() {
     h2.textContent = 'Welcome back ' + currentUser.name + '! Please check if the below information is up to date!';
     greeting.appendChild(h2);
     populateUserForm();
-    enter.addEventListener('submit', onSubmitUpdateUser);
   } else {
     h2 = document.createElement('h2');
     greeting.appendChild(h2);
     h2.textContent = 'Hello ' + currentUser.name + '! Please provide the below information!';
     greeting.appendChild(h2);
-    document.getElementsByTagName('input')[0].value = currentUser.name;
-    document.getElementsByTagName('input')[1].value = currentUser.email;
-    enter.addEventListener('submit', onSubmitNewUser);
+    populateUserForm();
   }
+  enter.addEventListener('submit', onSubmitUpdateUser);
 }
 
 userPageInit();

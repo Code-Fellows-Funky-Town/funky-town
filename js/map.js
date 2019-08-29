@@ -107,13 +107,33 @@ function updatePath() {
   var distanceInPx = totalPathDistance(path);
   var distanceInFeet = distanceInPx * 5.265;
   var distanceInMiles = distanceInFeet / 5280;
+  console.log(`Pixel distance: ${distanceInPx.toFixed(3)}  Feet: ${distanceInFeet.toFixed(3)}  Miles: ${distanceInMiles.toFixed(3)}`);
 
   walkActivity.distance = distanceInMiles;
   runActivity.distance = distanceInMiles;
   bikeActivity.distance = distanceInMiles;
 
+  elDistance = document.getElementById('distance');
+  // elDistance.textContent = `DISTANCE: ${distanceInMiles} MILES`;
 
 
+            elWalkTime = document.getElementById('walk_time');
+            elWalkCal = document.getElementById('walk_calories');
+
+            elRunTime = document.getElementById('run_time');
+            elRunCal = document.getElementById('run_calories');
+
+            elBikeTime = document.getElementById('bike_time');
+            elBikeCal = document.getElementById('bike_calories');
+
+  elWalkTime.textContent = `TIME: ${walkActivity.timeInHours()} HOURS`;
+  elWalkCal.textContent = `CALORIES: ${walkActivity.calorieCount()}`;
+
+  // elRunTime.textContent = `TIME: ${runActivity.timeInHours()} HOURS`;
+  // elRunCal.textContent = `CALORIES: ${runActivity.calorieCount()}`;
+
+  // elBikeTime.textContent = `TIME: ${bikeActivity.timeInHours()} HOURS`;
+  // elBikeCal.textContent = `CALORIES: ${bikeActivity.calorieCount()}`;
 }
 
 // Actual rendering to the canvas ----------------------------------------------------------------------------
@@ -286,20 +306,20 @@ function initTemplateActivities() {
 
 function initMapPage() {
   console.time('initMapPage');
+  initTemplateActivities();
   initMapCanvas();
   initActivityButtonHandlers();
-  initTemplateActivities();
 
-  var elDistance = document.getElementById('distance');
+  elDistance = document.getElementById('distance');
 
-  var elWalkTime = document.getElementById('walk_time');
-  var elWalkCal = document.getElementById('walk_cal');
+  elWalkTime = document.getElementById('walk_time');
+  elWalkCal = document.getElementById('walk_calories');
 
-  var elRunTime = document.getElementById('run_time');
-  var elRunCal = document.getElementById('run_cal');
+  elRunTime = document.getElementById('run_time');
+  elRunCal = document.getElementById('run_calories');
 
-  var elBikeTime = document.getElementById('bike_time');
-  var elBikeCal = document.getElementById('bike_cal');
+  elBikeTime = document.getElementById('bike_time');
+  elBikeCal = document.getElementById('bike_calories');
 
   console.timeEnd('initMapPage');
 }

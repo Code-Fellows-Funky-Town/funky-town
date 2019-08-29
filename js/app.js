@@ -21,29 +21,36 @@ function User(name, email, age, currentWeight, targetWeight) {
     this.saveToLocalStorage();
   }
   currentUser = this;
-  loadActivities();
+  this.loadActivities();
 }
+
 /**
  * To be called only by the User constructor.
  *
  */
 User.prototype.loadActivities = function () {
-  this.activityList = [];
-  var userActivitiesKey = 'activities-' + currentUser.email;
-  var arr = JSON.parse(localStorage.getItem(userActivitiesKey));
-  for (var i = 0; i < arr.length; i++) {
-    var obj = arr[i];
-    var act = new Activity();
-    act.type = obj.type;
-    act.distance = obj.distance;
-    this.activityList.push(act);
+  if (this.email) {
+    var key = 'activities-' + this.email;
+    var arr = JSON.parse(localStorage.getItem(key));
+    if (arr) {
+      this.activityList = [];
+      for (var i = 0; i < arr.length; i++) {
+        var obj = arr[i];
+        var act = new Activity();
+        act.type = obj.type;
+        act.distance = obj.distance;
+        this.activityList.push(act);
+      }
+    }
   }
 };
 
 User.prototype.saveActivityList = function () {
-  var key = 'activities-' + currentUser.email;
-  var str = JSON.stringify(this.activityList);
-  localStorage.setItem(key, str);
+  if (this.email && this.activityList) {
+    var key = 'activities-' + this.email;
+    var str = JSON.stringify(this.activityList);
+    localStorage.setItem(key, str);
+  }
 };
 
 User.prototype.addActivity = function (activity) {
@@ -64,7 +71,7 @@ User.prototype.saveToLocalStorage = function() {
     targetWeight: this.targetWeight,
     currentWeight: this.currentWeight,
   };
-  localStorage.setItem('user-' + userData.email, JSON.stringify(userData));
+  localStorage.setItem('user-' + this.email, JSON.stringify(userData));
   this.saveActivityList();
 };
 
@@ -112,11 +119,11 @@ Activity.prototype.distance = function(distance) {
   this.distance = distance;
 };
 
-function newActivity() {
-  var type = event.target.id;
-  new Activity(type);
-  localStorage.setItem('activities-' + currentUser.email, JSON.stringify(listOfActivities));
-}
+// function newActivity() {
+//   var type = event.target.id;
+//   new Activity(type);
+//   localStorage.setItem('activities-' + currentUser.email, JSON.stringify(listOfActivities));
+// }
 
 function initCurrentUser() {
   var obj = JSON.parse(localStorage.getItem('userId'));
