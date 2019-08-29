@@ -1,0 +1,65 @@
+body {
+    width: 1200px;
+    margin: 0 auto;
+    background-color: gray;
+}
+
+.aboutUsLinks {
+    border-radius: 20px;
+    border: 5px solid black;
+    box-shadow: 10px 10px 5px rgb(15, 15, 15);
+    font-family: 'Audiowide', cursive;
+    font-size: 40px;
+    height: 100px;
+    margin: 0 auto;
+    text-shadow: 3px 3px 5px rgb(247, 246, 246);
+    width: 500px;
+    color: black;
+    margin: 30px;
+    padding: 10px;
+}
+
+h1 {
+    color: rgb(0, 0, 0);
+    font-family: 'Audiowide', cursive;
+    font-size: 80px;
+    text-align: center;
+    padding: 40px;
+    text-shadow: 5px 5px 1px rgb(247, 246, 246);
+}
+
+h2 {
+    color: rgb(0, 0, 0);
+    font-family: 'Audiowide', cursive;
+    font-size: 40px;
+    text-shadow: 3px 3px 3px rgb(247, 246, 246);
+    display: block;
+    padding: 50px 0 25px 0;
+}
+
+#aboutUs {}
+
+#devInfo {}
+
+span>ul>li {
+    font-family: 'Baloo Tamma', cursive;
+    font-size: 2em;
+    padding-top: 30px;
+}
+
+#links {
+    text-align: center;
+}
+
+p {}
+
+footer {
+    text-align: center;
+    bottom: 100%;
+    padding: 40px 0 15px 0;
+}
+
+ul>li {
+    font-family: 'Baloo Tamma', cursive;
+    font-size: 1.5em;
+}
