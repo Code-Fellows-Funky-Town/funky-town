@@ -129,11 +129,11 @@ function updatePath() {
   elWalkTime.textContent = `TIME: ${walkActivity.timeInHours()} HOURS`;
   elWalkCal.textContent = `CALORIES: ${walkActivity.calorieCount()}`;
 
-  // elRunTime.textContent = `TIME: ${runActivity.timeInHours()} HOURS`;
-  // elRunCal.textContent = `CALORIES: ${runActivity.calorieCount()}`;
+  elRunTime.textContent = `TIME: ${runActivity.timeInHours()} HOURS`;
+  elRunCal.textContent = `CALORIES: ${runActivity.calorieCount()}`;
 
-  // elBikeTime.textContent = `TIME: ${bikeActivity.timeInHours()} HOURS`;
-  // elBikeCal.textContent = `CALORIES: ${bikeActivity.calorieCount()}`;
+  elBikeTime.textContent = `TIME: ${bikeActivity.timeInHours()} HOURS`;
+  elBikeCal.textContent = `CALORIES: ${bikeActivity.calorieCount()}`;
 }
 
 // Actual rendering to the canvas ----------------------------------------------------------------------------
@@ -275,7 +275,7 @@ function onActivityClick(e) {
   }
 
   currentUser.addActivity(selectedActivity);
-  location.href('stat.html');
+  location.href = 'stat.html';
 }
 
 // Page setup functions -----------------------------------
