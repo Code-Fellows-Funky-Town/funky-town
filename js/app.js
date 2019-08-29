@@ -119,6 +119,52 @@ Activity.prototype.distance = function(distance) {
   this.distance = distance;
 };
 
+// Helper Functions -----------------------------------------------------
+
+/**
+ * This is a helper function to add an element with given tag name optional text, class name, and id to the given parent
+ *
+ * @param {*} parent
+ * @param {*} tagName
+ * @param {*} text
+ * @param {*} className
+ * @param {*} id
+ * @returns
+ */
+function addElement(parent, tagName, text, className, id) {
+  var newElement = document.createElement(tagName);
+  if (text) {
+    newElement.textContent = text;
+  }
+  if (className) {
+    newElement.className = className;
+  }
+  if (id) {
+    newElement.id = id;
+  }
+  if (parent) {
+    parent.appendChild(newElement);
+  }
+  return newElement;
+}
+
+/**
+ * Removes all child elements from the given element.
+ *
+ * The method used is faster than ```element.innerHTML = ''``` according to
+ * https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
+ *
+ * @param {*} element
+ */
+function clearElement(element) {
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+}
+
+/************************************************************************** */
+
+
 // function newActivity() {
 //   var type = event.target.id;
 //   new Activity(type);

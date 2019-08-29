@@ -114,7 +114,7 @@ function updatePath() {
   bikeActivity.distance = distanceInMiles;
 
   elDistance = document.getElementById('distance');
-  // elDistance.textContent = `DISTANCE: ${distanceInMiles} MILES`;
+  elDistance.textContent = `DISTANCE: ${distanceInMiles.toFixed(1)} MILES`;
 
   elWalkTime.textContent = `TIME: ${formatHours(walkActivity.timeInHours())}`;
   elWalkCal.textContent = `CALORIES: ${walkActivity.calorieCount().toFixed(1)}`;
@@ -248,11 +248,15 @@ function removeDistance(path, distance, atLeast) {
 
 // --------------------------------------------------------
 
-function formatHours(hours) {
+function formatHours(hours, showSeconds) {
   var h = Math.floor(hours);
   var m = Math.floor((hours * 60) % 60);
   var s = Math.floor((hours * 3600) % 60);
-  return `${h.toString()}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+  if (showSeconds) {
+    return `${h.toString()}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+  } else {
+    return `${h.toString()}:${m.toString().padStart(2, "0")}`;
+  }
 }
 
 // Sidebar event handlers ---------------------------------
@@ -282,6 +286,21 @@ function onActivityClick(e) {
 }
 
 // Page setup functions -----------------------------------
+
+function renderUserProfile() {
+  var ul = document.getElementById('sidenav1');
+  addElement(ul, 'li', `NAME: ${currentUser.name}`);
+  addElement(ul, 'br');
+
+  addElement(ul, 'li', `AGE: ${currentUser.age}`);
+  addElement(ul, 'br');
+
+  addElement(ul, 'li', `CURRENT WEIGHT: ${currentUser.currentWeight}lbs`);
+  addElement(ul, 'br');
+
+  addElement(ul, 'li', `TARGET WEIGHT: ${currentUser.targetWeight}lbs`);
+  addElement(ul, 'br');
+}
 
 function initMapCanvas() {
   canvas.addEventListener('mousedown', onMousedown);
@@ -321,6 +340,7 @@ function linkSidebarElements() {
 }
 
 function onDOMContentLoaded(e) {
+  renderUserProfile();
   linkSidebarElements();
   initActivityButtonHandlers();
 }
