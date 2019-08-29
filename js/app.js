@@ -5,6 +5,7 @@ var currentUser = {};
 function User(name, email, age, currentWeight, targetWeight) {
   var userKey = 'user-' + email;
   var obj = JSON.parse(localStorage.getItem(userKey));
+  this.activityList = [];
   if (obj) {
     this.name = obj.name;
     this.email = obj.email;
@@ -21,7 +22,6 @@ function User(name, email, age, currentWeight, targetWeight) {
     this.saveToLocalStorage();
   }
   currentUser = this;
-  this.loadActivities();
 }
 
 /**
@@ -46,7 +46,7 @@ User.prototype.loadActivities = function () {
 };
 
 User.prototype.saveActivityList = function () {
-  if (this.email && this.activityList) {
+  if (this.email && this.activityList.length > 0) {
     var key = 'activities-' + this.email;
     var str = JSON.stringify(this.activityList);
     localStorage.setItem(key, str);
@@ -112,7 +112,7 @@ Activity.prototype.calorieCount = function() {
       met = exerciseProperties[i][1];
     }
   }
-  return met * currentUser.weight / 2.2 * this.duration;
+  return met * currentUser.currentWeight / 2.2 * this.timeInHours();
 };
 
 Activity.prototype.distance = function(distance) {
