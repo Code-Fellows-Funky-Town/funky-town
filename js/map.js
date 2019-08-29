@@ -248,11 +248,15 @@ function removeDistance(path, distance, atLeast) {
 
 // --------------------------------------------------------
 
-function formatHours(hours) {
+function formatHours(hours, showSeconds) {
   var h = Math.floor(hours);
   var m = Math.floor((hours * 60) % 60);
   var s = Math.floor((hours * 3600) % 60);
-  return `${h.toString()}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+  if (showSeconds) {
+    return `${h.toString()}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+  } else {
+    return `${h.toString()}:${m.toString().padStart(2, "0")}`;
+  }
 }
 
 // Sidebar event handlers ---------------------------------
@@ -291,10 +295,10 @@ function renderUserProfile() {
   addElement(ul, 'li', `AGE: ${currentUser.age}`);
   addElement(ul, 'br');
 
-  addElement(ul, 'li', `CURRENT WEIGHT: ${currentUser.currentWeight}`);
+  addElement(ul, 'li', `CURRENT WEIGHT: ${currentUser.currentWeight}lbs`);
   addElement(ul, 'br');
 
-  addElement(ul, 'li', `TARGET WEIGHT: ${currentUser.targetWeight}`);
+  addElement(ul, 'li', `TARGET WEIGHT: ${currentUser.targetWeight}lbs`);
   addElement(ul, 'br');
 }
 
