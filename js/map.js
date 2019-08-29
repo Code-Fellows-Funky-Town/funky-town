@@ -114,7 +114,7 @@ function updatePath() {
   bikeActivity.distance = distanceInMiles;
 
   elDistance = document.getElementById('distance');
-  // elDistance.textContent = `DISTANCE: ${distanceInMiles} MILES`;
+  elDistance.textContent = `DISTANCE: ${distanceInMiles.toFixed(1)} MILES`;
 
   elWalkTime.textContent = `TIME: ${formatHours(walkActivity.timeInHours())}`;
   elWalkCal.textContent = `CALORIES: ${walkActivity.calorieCount().toFixed(1)}`;
@@ -283,6 +283,21 @@ function onActivityClick(e) {
 
 // Page setup functions -----------------------------------
 
+function renderUserProfile() {
+  var ul = document.getElementById('sidenav1');
+  addElement(ul, 'li', `NAME: ${currentUser.name}`);
+  addElement(ul, 'br');
+
+  addElement(ul, 'li', `AGE: ${currentUser.age}`);
+  addElement(ul, 'br');
+
+  addElement(ul, 'li', `CURRENT WEIGHT: ${currentUser.currentWeight}`);
+  addElement(ul, 'br');
+
+  addElement(ul, 'li', `TARGET WEIGHT: ${currentUser.targetWeight}`);
+  addElement(ul, 'br');
+}
+
 function initMapCanvas() {
   canvas.addEventListener('mousedown', onMousedown);
   canvas.addEventListener('mouseup', onMouseup);
@@ -321,6 +336,7 @@ function linkSidebarElements() {
 }
 
 function onDOMContentLoaded(e) {
+  renderUserProfile();
   linkSidebarElements();
   initActivityButtonHandlers();
 }
