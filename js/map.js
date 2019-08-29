@@ -275,7 +275,7 @@ function onActivityClick(e) {
   }
 
   currentUser.addActivity(selectedActivity);
-  location.href('stat.html');
+  location.href ='stat.html';
 }
 
 // Page setup functions -----------------------------------
