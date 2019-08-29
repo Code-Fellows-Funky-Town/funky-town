@@ -5,7 +5,7 @@
 var greeting = document.getElementById('greeting');
 var enter = document.getElementById('enter');
 
-function updateUser(e) {
+function onSubmitUpdateUser(e) {
   e.preventDefault();
   currentUser = {
     name: e.target.name.value,
@@ -19,16 +19,15 @@ function updateUser(e) {
   location.href = 'map.html';
 }
 
-function newUser(e) {
+function onSubmitNewUser(e) {
   e.preventDefault();
   var name = e.target.name.value;
   var email = e.target.email.value;
   var age = parseInt(e.target.age.value);
   var currentWeight = parseInt(e.target.currentWeight.value);
   var targetWeight = parseInt(e.target.targetWeight.value);
-  var newUser = new User(name, email, age, currentWeight, targetWeight);
+  new User(name, email, age, currentWeight, targetWeight);
 
-  newUser.saveToLocalStorage();
   location.href = 'map.html';
 }
 
@@ -48,13 +47,13 @@ function populateUserForm() {
 // If true, invokes autoFill function
 // Else, prints a greeting message to a new user and asks to fill out the form
 function userPageInit() {
-  if (currentUser.exists()) {
+  if (currentUser.userDataComplete()) {
     var h2 = document.createElement('h2');
     greeting.appendChild(h2);
     h2.textContent = 'Welcome back ' + currentUser.name + '! Please check if the below information is up to date!';
     greeting.appendChild(h2);
     populateUserForm();
-    enter.addEventListener('submit', updateUser);
+    enter.addEventListener('submit', onSubmitUpdateUser);
   } else {
     h2 = document.createElement('h2');
     greeting.appendChild(h2);
@@ -62,7 +61,8 @@ function userPageInit() {
     greeting.appendChild(h2);
     document.getElementsByTagName('input')[0].value = currentUser.name;
     document.getElementsByTagName('input')[1].value = currentUser.email;
-    enter.addEventListener('submit', newUser);
+    enter.addEventListener('submit', onSubmitNewUser);
   }
 }
+
 userPageInit();

@@ -6,6 +6,18 @@ var walkActivity = {};
 var runActivity = {};
 var bikeActivity = {};
 
+// Output HTML elements to be set one time by initMapPage().
+var elDistance = {};
+
+var elWalkTime = {};
+var elWalkCal = {};
+
+var elRunTime = {};
+var elRunCal = {};
+
+var elBikeTime = {};
+var elBikeCal = {};
+
 // Global variables for route tracing
 var canvas = document.getElementById("map_canvas");
 var ctx = canvas.getContext("2d");
@@ -95,10 +107,13 @@ function updatePath() {
   var distanceInPx = totalPathDistance(path);
   var distanceInFeet = distanceInPx * 5.265;
   var distanceInMiles = distanceInFeet / 5280;
-  console.log(`Pixel distance: ${distanceInPx.toFixed(3)}  Feet: ${distanceInFeet.toFixed(3)}  Miles: ${distanceInMiles.toFixed(3)}`);
-  // TODO: Set the activity distances!!
 
-  
+  walkActivity.distance = distanceInMiles;
+  runActivity.distance = distanceInMiles;
+  bikeActivity.distance = distanceInMiles;
+
+
+
 }
 
 // Actual rendering to the canvas ----------------------------------------------------------------------------
@@ -238,7 +253,8 @@ function onActivityClick(e) {
       selectedActivity = bikeActivity;
       break;
   }
-  currentUser.AddActivity(selectedActivity);
+
+  currentUser.addActivity(selectedActivity);
   location.href('stat.html');
 }
 
@@ -253,6 +269,10 @@ function initMapCanvas() {
 }
 
 function initActivityButtonHandlers() {
+  var walk = document.getElementById('walk');
+  var run = document.getElementById('run');
+  var bike = document.getElementById('bike');
+
   walk.addEventListener('click', onActivityClick);
   run.addEventListener('click', onActivityClick);
   bike.addEventListener('click', onActivityClick);
@@ -267,7 +287,20 @@ function initTemplateActivities() {
 function initMapPage() {
   console.time('initMapPage');
   initMapCanvas();
+  initActivityButtonHandlers();
   initTemplateActivities();
+
+  var elDistance = document.getElementById('distance');
+
+  var elWalkTime = document.getElementById('walk_time');
+  var elWalkCal = document.getElementById('walk_cal');
+
+  var elRunTime = document.getElementById('run_time');
+  var elRunCal = document.getElementById('run_cal');
+
+  var elBikeTime = document.getElementById('bike_time');
+  var elBikeCal = document.getElementById('bike_cal');
+
   console.timeEnd('initMapPage');
 }
 

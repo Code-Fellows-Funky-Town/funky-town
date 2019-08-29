@@ -1,13 +1,9 @@
 'use strict';
 
-// TODO: SOC; page specific code should be in the page specific JS file.
-var walk = document.getElementById('walk');
-var run = document.getElementById('run');
-var bike = document.getElementById('bike');
-
 var currentUser = {};
 
-function User(userKey, name, email) {
+function User(name, email, age, currentWeight, targetWeight) {
+  var userKey = 'user-' + email;
   var obj = JSON.parse(localStorage.getItem(userKey));
   if (obj) {
     this.name = obj.name;
@@ -15,13 +11,48 @@ function User(userKey, name, email) {
     this.age = obj.age;
     this.currentWeight = obj.currentWeight;
     this.targetWeight = obj.targetWeight;
+    this.loadActivities();
   } else {
     this.name = name;
     this.email = email;
+    this.age = age;
+    this.currentWeight = currentWeight;
+    this.targetWeight = targetWeight;
+    this.saveToLocalStorage();
   }
+  currentUser = this;
+  loadActivities();
 }
+/**
+ * To be called only by the User constructor.
+ *
+ */
+User.prototype.loadActivities = function () {
+  this.activityList = [];
+  var userActivitiesKey = 'activities-' + currentUser.email;
+  var arr = JSON.parse(localStorage.getItem(userActivitiesKey));
+  for (var i = 0; i < arr.length; i++) {
+    var obj = arr[i];
+    var act = new Activity();
+    act.type = obj.type;
+    act.distance = obj.distance;
+    this.activityList.push(act);
+  }
+};
 
-User.prototype.exists = function() {
+User.prototype.saveActivityList = function () {
+  var key = 'activities-' + currentUser.email;
+  var str = JSON.stringify(this.activityList);
+  localStorage.setItem(key, str);
+};
+
+User.prototype.addActivity = function (activity) {
+  this.activityList.push(activity);
+  this.saveActivityList();
+};
+
+User.prototype.userDataComplete = function () {
+  // TODO: discuss if any fields are optional.
   return (typeof this.currentWeight === 'number');
 };
 
@@ -33,31 +64,28 @@ User.prototype.saveToLocalStorage = function() {
     targetWeight: this.targetWeight,
     currentWeight: this.currentWeight,
   };
- 
   localStorage.setItem('user-' + userData.email, JSON.stringify(userData));
+  this.saveActivityList();
 };
 
-Activity.prototype.saveToLocalStorage = function() {
-
-};
-
-var listOfActivities = [];
-var currentUser = {};
 var exerciseProperties = [
   ['walk', 3.0, 2.5],
   ['run', 11, 6.7],
   ['bike', 9.3, 14]
 ];
 
-function Activity(type) {
+/**
+ * Activity constructor function
+ *
+ * @param {*} type
+ * @param {*} distance
+ */
+function Activity(type, distance) {
   this.type = type;
-  this.distance = this.distance();
-  this.duration = this.duration();
-  this.calories = this.calorieCount();
-  listOfActivities.push(this);
+  this.distance = distance;
 }
 
-Activity.prototype.duration = function() {
+Activity.prototype.timeInHours = function() {
   var speed = 0;
   // TODO: better way?
   for (var i = 0; i < exerciseProperties.length; i++) {
@@ -69,8 +97,8 @@ Activity.prototype.duration = function() {
 };
 
 // Calories calculation test
-Activity.prototype.calorieCount = function () {
-  // TODO: what does met stand for?  Comment or change variable name.  Should be obvious to user.
+Activity.prototype.calorieCount = function() {
+  // Metabolic Equivalent of Task (MET)
   var met = 0;
   for (var i = 0; i < exerciseProperties.length; i++) {
     if (exerciseProperties[i][0] === this.type) {
@@ -90,15 +118,9 @@ function newActivity() {
   localStorage.setItem('activities-' + currentUser.email, JSON.stringify(listOfActivities));
 }
 
-// TODO: SOC; page specific code should be in the page specific JS file.
-// walk.addEventListener('click', newActivity);
-// run.addEventListener('click', newActivity);
-// bike.addEventListener('click', newActivity);
-
 function initCurrentUser() {
   var obj = JSON.parse(localStorage.getItem('userId'));
-  var userKey = 'user-' + obj.email;
-  currentUser = new User(userKey, obj.name, obj.email);
+  new User(obj.name, obj.email);
 }
 
 initCurrentUser();
