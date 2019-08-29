@@ -52,7 +52,7 @@ section {
   font-size : 20px;
   height:50px;
   margin-left: 150px;
-  margin-top: 380px;
+  margin-top: 450px;
   width: 90px;
 }
 
@@ -62,7 +62,7 @@ section {
   margin:150px;
   margin-bottom: 20px;
   position: absolute;
-  top: 580px;
+  top: 620px;
   width: 90px;
 }
 
@@ -73,7 +73,7 @@ section {
   margin: 150px;
   margin-bottom: 20px;
   position: absolute;
-  top: 790px;
+  top: 795px;
   width: 90px;
 }
 
@@ -168,7 +168,7 @@ section {
 }
 
 
-.sidenav1 {
+#sidenav1 {
 
   color: rgb(11, 12, 12);
 
@@ -179,6 +179,7 @@ section {
   overflow: auto;
   margin-top: 50px;
   z-index: 2;
+  margin-bottom: 100px;
 
 }
 
@@ -191,39 +192,10 @@ section {
   height: 150px;
   list-style-type: none;
   overflow: auto;
-  padding-top:200px;
+margin-top: 25px;
   z-index: 2;
 
 }
-
-.sidenav3 {
-
-  color: rgb(11, 12, 12);
-  font-family: 'Audiowide', cursive;
-  font-size: 18px;
-  height: 150px;
-  list-style-type: none;
-  overflow: auto;
-  padding-top: 50px;
-  z-index: 2;
-
-}
-
-.sidenav4 {
-
-  color: rgb(11, 12, 12);
-
-  font-family: 'Audiowide', cursive;
-  font-size: 18px;
-  height: 150px;
-  list-style-type: none;
-  overflow: auto;
-  padding-top: 60px;
-  z-index: 2;
-
-}
-
-
 
 li {
 
