@@ -1,0 +1,125 @@
+body {
+    float: center;
+    margin: 0 auto;
+    width: 1200px;
+}
+
+header {
+    float: left;
+    text-align : center;       
+}
+
+#login {
+    clear: both;
+}
+
+fieldset {
+    box-align: center;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px rgb(15, 15, 15);
+    font-size: 20px;
+    margin-left: 360px;
+    padding: 20px;
+    text-align: center;
+    width:380px;
+}
+
+input {
+    background-color: white;
+    font-family:'Audiowide', cursive;
+    font-size: 30px;
+    margin-bottom:10px;
+    text-align: center;
+}
+
+label {
+    background-color: rgba(119, 97, 97, 0);
+    font-family:'Audiowide', cursive;
+    font-size: 40px;
+    margin-bottom:10px;
+    text-shadow: 3px 3px 5px rgb(247, 246, 246);
+}
+
+button {
+    background-color: rgba(236, 10, 10, 0.623);
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px rgb(15, 15, 15);
+    font-family:'Audiowide', cursive;
+    font-size: 40px;
+    height: 100px;
+    margin-left: 360px;
+    text-shadow: 3px 3px 5px rgb(228, 223, 223);
+    width: 480px;
+    outline: none;
+}
+
+.create {
+    background-color: rgba(236, 10, 10, 0.473);
+    box-shadow: 10px 10px 5px rgb(15, 15, 15);
+    font-family:'Audiowide', cursive;
+    font-size: 44px;
+    height: 100px;
+    margin-top: 50px;
+    margin-left: 380px;
+    text-shadow: 3px 3px 3px rgb(247, 246, 246);
+    width: 480px;
+}
+
+h1 {
+    color:rgb(0, 0, 0); 
+    font-family:'Audiowide', cursive;
+    font-size:80px;
+    padding-top: 0px;
+    text-align: center;
+    text-shadow: 7px 7px 1px rgb(247, 246, 246);      
+      
+}
+
+h2 {
+    color:rgb(0, 0, 0); 
+    font-family:'Audiowide', cursive;
+    font-size: 60px;
+    padding-top: 100px;
+    text-align: center;
+    text-shadow: 3px 3px 3px rgb(247, 246, 246);
+}
+
+h3 {
+    color:black; 
+    font-family:'Audiowide', cursive;
+    font-size: 40px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+li {
+    display: inline;
+    padding: 10px;
+}
+
+.seattle {  
+    background-color: rgba(126, 165, 190, 0);
+    border: solid 30px rgb(95, 91, 91) ;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgb(3, 8, 19);
+    height:240px;
+    margin: 2px;
+    object-fit:scale-down;
+    opacity: .7;
+    position: relative;
+    margin: 0px 9px 0px 9px;
+    text-shadow: 5px;
+    width:315px;
+  }
+  
+  .seattle:hover {
+    background-color: rgb(116, 213, 243);
+    border: solid 30px rgb(247, 56, 56) ;
+    border-radius: 50px;
+    opacity: 1;
+    nav-index: auto;
+    box-shadow: 5px 5px 5px rgb(86, 136, 230);
+    transition-delay: 0.5s;
+    transition: 1s all;
+  }
+  

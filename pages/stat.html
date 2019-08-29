@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Statstics</title>
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Baloo+Tamma|Cabin+Sketch|Dorsa|Fredericka+the+Great|Frijole|Griffy
+          |Gugi|Jacques+Francois+Shadow|Kalam|Kaushan+Script|Londrina+Outline|Luckiest+Guy|Monofett|Montserrat+Subrayada|Nosifer|Pacifico
+          |Revalia|Rock+Salt|Sedgwick+Ave+Display|Sirin+Stencil|Six+Caps|Uncial+Antiqua|Vast+Shadow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/stat.css">
+  </head>
+  <body>
+    <header>
+      <h1>CALORIES COUNTDOWN SEATTLEITES</h1>
+      <section>
+        <button class="mapButton" onclick="window.location.href = '../pages/map.html';">MAP</button>
+      </section>
+    </header>
+    <main>
+      <section id="user-info"></section>
+      <div>
+        <h2>
+          Total Calories Burnt (calories)
+        </h2>
+        <canvas id="chart" width="1200" height="460"></canvas>
+      </div>
+      <div>
+        <h2>
+            Total Distance Traveled (miles)
+        </h2>
+        <canvas id="chart1" width="1200" height="460"></canvas>
+      </div>
+    </main>
+    <footer>
+    </footer>
+    <video autoplay muted loop plays-inline id="statVideo">
+      <source src="../assets/video/yoga.webm" type="video/webm">
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+      <script src="../js/app.js"></script>
+      <script src="../js/stat.js"></script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+#user_info {
+
+  padding: 10px;
+}
+
+h1 {
+  color:rgb(0, 0, 0); 
+  font-family:'Audiowide', cursive;
+  font-size:80px;
+  margin-bottom: 40px;
+  padding-top: 0px;
+  text-align: center;
+  text-shadow: 7px 7px 1px rgb(247, 246, 246);
+          
+}
+
+
+section {
+  color:rgb(12, 10, 10); 
+  font-family:'Audiowide', cursive;
+  font-size:20px;
+  margin-top: 20px;
+  padding-top: 0px;
+  text-align: center;
+  text-shadow: 7px 7px 1px rgba(247, 246, 246, 0);
+
+}
+ 
+.mapButton {
+  font-size : 20px;
+  height:40px;
+  margin: 0;
+  margin-bottom: 50px;
+  text-align: center;
+  width: 150px;
+}
+
+
+#statVideo {
+
+  bottom: 0;
+  height: auto; 
+  min-width: 100%; 
+  min-height: 100%;
+  opacity: 0.5;
+  position: fixed;
+  right: 0; 
+  width: auto; 
+  z-index: -100;
+ 
+}
+

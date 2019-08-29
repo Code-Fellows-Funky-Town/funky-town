@@ -1,0 +1,198 @@
+body {
+  margin: 0 auto;
+  width: 100%;
+}
+
+h1 {
+  color:rgb(0, 0, 0); 
+  font-family:'Audiowide', cursive;
+  font-size:80px;
+  padding-top: 0px;
+  text-align: center;
+  text-shadow: 7px 7px 1px rgb(247, 246, 246);
+}
+
+section {
+  color:rgb(12, 10, 10); 
+  display: inline;
+  font-family:'Audiowide', cursive;
+  font-size:20px;
+  margin: 0px;
+  padding-top:150px;
+  text-align: left;
+  text-shadow: 7px 7px 1px rgba(247, 246, 246, 0);
+  top:10px;
+  left:10px;
+  position: absolute;
+  z-index: 100;
+}
+
+.mapButton {
+  font-size :20px;
+  height:70px;
+  margin : 0px;
+  left: 30px;
+  position: absolute;
+  width: 120px;
+}
+
+.mapButton2 {
+  font-size : 20px;
+  height:70px;
+  left: 170px;
+  position: absolute;
+  margin: 0px;
+  width: 120px;
+}
+
+#walk {
+  font-size : 20px;
+  height:50px;
+  margin-left: 230px;
+  margin-top: 450px;
+  width: 90px;
+}
+
+#run {
+  font-size : 20px;
+  height:50px;
+  margin-left:230px;
+  position: absolute;
+  top: 780px;
+  width: 90px;
+}
+
+#bike {
+  font-size : 20px;
+  height:50px;
+  margin-left: 230px;
+  position: absolute;
+  top: 960px;
+  width: 90px;
+}
+
+#mapPicture {
+  height:150px;
+  left:90px;
+  position: absolute;
+  top:365px;
+  width:150px;
+  z-index: 2;
+}
+
+#mapPicture1 {
+  height:150px;
+  left:1830px;
+  position: absolute;
+  top:750px;
+  width:150px;
+  z-index: 2;
+}
+
+#mapPicture2 {
+  height:150px;
+  left:1780px;
+  position: absolute;
+  top:0px;
+  width:150px;
+}
+
+#mapPicture3 {
+  height:150px;
+  left:110px;
+  position: absolute;
+  top:220px;
+  width:150px;
+}
+
+#mapPicture4 {
+  height:150px;
+  left:1720px;
+  position: absolute;
+  top:930px;
+  width:200px;
+}
+
+.map {
+  background-color: rgba(236, 10, 10, 0.473);
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px rgb(15, 15, 15);
+  font-family: 'Audiowide', cursive;
+  font-size: 40px;
+  height: 100px;
+  margin-left: 40px;
+  text-shadow: 3px 3px 5px rgb(247, 246, 246);
+}
+
+#onMaph1 {
+  color: rgb(12, 10, 10);
+  display: inline;
+  font-family: 'Audiowide', cursive;
+  font-size: 50px;
+  padding-top: 0px;
+  text-align: left;
+  text-shadow: 7px 7px 1px rgba(247, 246, 246, 0);
+  top: 0px;
+  left: 450px;
+  position: absolute;
+  z-index: 1;
+}
+
+#barMap {
+  background-color: rgba(155, 147, 136, 0.288);
+  height: 1080px;
+  position: absolute;
+  overflow: auto;
+  top: 0px;
+  z-index: 2;
+  width: 350px;
+}
+
+#sidenav1 {
+  color: rgb(11, 12, 12);
+  font-family: 'Audiowide', cursive;
+  font-size: 20px;
+  height: 200px;
+  list-style-type: none;
+  overflow: auto;
+  margin-top: 50px;
+  z-index: 2;
+  margin-bottom: 100px;
+}
+
+.sidenav2 {
+  color: rgb(11, 12, 12);
+  font-family: 'Audiowide', cursive;
+  font-size: 18px;
+  height: 150px;
+  list-style-type: none;
+  overflow: auto;
+  margin-top: 25px;
+  z-index: 2;
+}
+
+li {
+  padding: 30px;
+}
+
+#container {
+  display: inline-block;
+  width: 1920px;
+  height: 1080px;
+  /* background: rgb(0, 0, 0, 0); */
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.img {
+  position: absolute;
+  z-index: -1;
+}
+
+#map_canvas {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
