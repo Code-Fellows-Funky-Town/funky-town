@@ -343,6 +343,7 @@ function onDOMContentLoaded(e) {
   renderUserProfile();
   linkSidebarElements();
   initActivityButtonHandlers();
+  updatePath();
 }
 
 function initMapPage() {
