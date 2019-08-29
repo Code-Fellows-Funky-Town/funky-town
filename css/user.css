@@ -1,13 +1,11 @@
 
-#greeting>h2 {
+#greeting > h2 {
   color:red;
   font-size: 40px;
-  padding: 20px;
-  
+  padding: 20px; 
 }
 
 #enter {
-
   padding: 20px;
 }
 
@@ -21,5 +19,4 @@
   right: 0; 
   width: auto; 
   z-index: -100;
-  
 }
