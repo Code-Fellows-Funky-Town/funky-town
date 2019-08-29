@@ -55,7 +55,7 @@ function generateData() {
 }
 
 function renderCalorieReport() {
-
+  
   var ctx = document.getElementById('chart').getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'bar',

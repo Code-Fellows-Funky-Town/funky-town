@@ -7,75 +7,32 @@ h1 {
   color:rgb(0, 0, 0); 
   font-family:'Audiowide', cursive;
   font-size:80px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   padding-top: 0px;
   text-align: center;
   text-shadow: 7px 7px 1px rgb(247, 246, 246);
-         
-      
-}
-
-
-
-div > h2 {
-  color:rgb(0, 0, 0); 
-  font-family:'Audiowide', cursive;
-  font-size: 60px;
-  padding-top: 20px;
-  margin-top: 20px;
-  text-align: center;
-  text-shadow: 3px 3px 3px rgb(247, 246, 246);
-  
-
+          
 }
 
 
 section {
   color:rgb(12, 10, 10); 
-  display: inline;
   font-family:'Audiowide', cursive;
   font-size:20px;
+  margin-top: 20px;
   padding-top: 0px;
   text-align: center;
   text-shadow: 7px 7px 1px rgba(247, 246, 246, 0);
-  
-  z-index: 100;
-}
 
+}
+ 
 .mapButton {
   font-size : 20px;
   height:40px;
   margin: 0;
+  margin-bottom: 50px;
   text-align: center;
   width: 150px;
-}
-
-.mapButton2 {
-  font-size : 20px;
-  height:40px;
-  margin: 0;
-  text-align: center;
-  width: 150px;
-}
-
-div {
-
-  position: relative;
-}
-
-#chart {
-
-  display: inline;
-  position: absolute;
-}
-
-img {
-  display: inline;
-  position: absolute;
-  z-index:200;
-  top:200;
-  left:200;
-
 }
 
 
@@ -85,7 +42,7 @@ img {
   height: auto; 
   min-width: 100%; 
   min-height: 100%;
-  opacity: 0.6;
+  opacity: 0.5;
   position: fixed;
   right: 0; 
   width: auto; 
