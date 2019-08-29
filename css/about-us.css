@@ -34,32 +34,52 @@ h2 {
     font-size: 40px;
     text-shadow: 3px 3px 3px rgb(247, 246, 246);
     display: block;
-    padding: 50px 0 25px 0;
+    padding: 50px 0 10px 0;
 }
 
 #aboutUs {}
 
 #devInfo {}
 
-span>ul>li {
+div {
+    display: block;
+    position: relative;
+    padding-top: 40px;
+}
+
+.devs {
     font-family: 'Baloo Tamma', cursive;
     font-size: 2em;
-    padding-top: 30px;
+    padding: 30px;
+    position: absolute;
+}
+
+.dev_img {
+    width: 200px;
+    height: auto;
+    display: inline-block;
+}
+
+.dev_info {
+    position: absolute;
+    font-family: 'Baloo Tamma', cursive;
+    font-size: 1em;
+    display: inline-block;
+    padding: 70px 0 0 30px;
+    list-style: square;
+}
+
+ul>li {
+    font-family: 'Baloo Tamma', cursive;
+    font-size: 1.25em;
 }
 
 #links {
     text-align: center;
 }
 
-p {}
-
 footer {
     text-align: center;
     bottom: 100%;
     padding: 40px 0 15px 0;
-}
-
-ul>li {
-    font-family: 'Baloo Tamma', cursive;
-    font-size: 1.5em;
 }
