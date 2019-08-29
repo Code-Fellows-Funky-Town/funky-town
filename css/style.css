@@ -33,7 +33,7 @@ fieldset {
 
 input {
 
-    background-color: rgba(32, 140, 212, 0.267);
+    background-color: white;
     font-family:'Audiowide', cursive;
     font-size: 30px;
     margin-bottom:10px;
@@ -54,14 +54,14 @@ label {
 
 button {
 
-    background-color: rgba(236, 10, 10, 0.473);
+    background-color: rgba(236, 10, 10, 0.623);
     border-radius: 20px;
     box-shadow: 10px 10px 5px rgb(15, 15, 15);
     font-family:'Audiowide', cursive;
     font-size: 40px;
     height: 100px;
     margin-left: 360px;
-    text-shadow: 3px 3px 5px rgb(247, 246, 246);
+    text-shadow: 3px 3px 5px rgb(228, 223, 223);
     width: 500px;
 }
 
@@ -186,7 +186,7 @@ li {
     height: auto; 
     min-width: 100%; 
     min-height: 100%;
-    opacity: 0.4;
+    opacity: 0.3;
     position: fixed;
     right: 0; 
     width: auto; 
@@ -199,7 +199,7 @@ li {
     bottom: 0;
     min-width: 100%; 
     min-height: 100%;
-    opacity: 0.8;
+    opacity: 0.7;
     position: fixed;
     right: 0; 
     width: auto; 
