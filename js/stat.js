@@ -30,6 +30,7 @@ function printProfile() {
 }
 
 function generateData() {
+  var activities = currentUser.activityList;
   console.log(activities);
   var sumWalkCal = 0;
   var sumRunCal = 0;
@@ -40,13 +41,13 @@ function generateData() {
 
   for (var i = 0; i < activities.length; i++) {
     if (activities[i].type === 'walk') {
-      sumWalkCal += activities[i].calorieCount;
+      sumWalkCal += activities[i].calorieCount();
       sumWalkDis += activities[i].distance;
     } else if (activities[i].type === 'run') {
-      sumRunCal += activities[i].calorieCount;
+      sumRunCal += activities[i].calorieCount();
       sumRunDis += activities[i].distance;
     } else if (activities[i].type === 'bike') {
-      sumBikeCal += activities[i].calorieCount;
+      sumBikeCal += activities[i].calorieCount();
       sumBikeDis += activities[i].distance;
     }
   }
@@ -123,7 +124,6 @@ function renderDistanceReport() {
     }
   });
 }
-
 
 /**
  * Simulate user data in local storage for testing.

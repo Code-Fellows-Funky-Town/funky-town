@@ -39,7 +39,7 @@ function endPath() {
 }
 
 function undoPath() {
-  removeDistance(path, 30, true);
+  removeDistance(path, 50, true);
   if (path.length === 1) {
     // if path is only one point, remove completely
     path = [];
@@ -116,24 +116,14 @@ function updatePath() {
   elDistance = document.getElementById('distance');
   // elDistance.textContent = `DISTANCE: ${distanceInMiles} MILES`;
 
+  elWalkTime.textContent = `TIME: ${formatHours(walkActivity.timeInHours())}`;
+  elWalkCal.textContent = `CALORIES: ${walkActivity.calorieCount().toFixed(1)}`;
 
-            elWalkTime = document.getElementById('walk_time');
-            elWalkCal = document.getElementById('walk_calories');
+  elRunTime.textContent = `TIME: ${formatHours(runActivity.timeInHours())}`;
+  elRunCal.textContent = `CALORIES: ${runActivity.calorieCount().toFixed(1)}`;
 
-            elRunTime = document.getElementById('run_time');
-            elRunCal = document.getElementById('run_calories');
-
-            elBikeTime = document.getElementById('bike_time');
-            elBikeCal = document.getElementById('bike_calories');
-
-  elWalkTime.textContent = `TIME: ${walkActivity.timeInHours()} HOURS`;
-  elWalkCal.textContent = `CALORIES: ${walkActivity.calorieCount()}`;
-
-  elRunTime.textContent = `TIME: ${runActivity.timeInHours()} HOURS`;
-  elRunCal.textContent = `CALORIES: ${runActivity.calorieCount()}`;
-
-  elBikeTime.textContent = `TIME: ${bikeActivity.timeInHours()} HOURS`;
-  elBikeCal.textContent = `CALORIES: ${bikeActivity.calorieCount()}`;
+  elBikeTime.textContent = `TIME: ${formatHours(bikeActivity.timeInHours())}`;
+  elBikeCal.textContent = `CALORIES: ${bikeActivity.calorieCount().toFixed(1)}`;
 }
 
 // Actual rendering to the canvas ----------------------------------------------------------------------------
@@ -256,26 +246,39 @@ function removeDistance(path, distance, atLeast) {
   path.splice(path.length - remove);
 }
 
-// Dialog event handlers ---------------------------------
+// --------------------------------------------------------
+
+function formatHours(hours) {
+  var h = Math.floor(hours);
+  var m = Math.floor((hours * 60) % 60);
+  var s = Math.floor((hours * 3600) % 60);
+  return `${h.toString()}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+}
+
+// Sidebar event handlers ---------------------------------
 
 function onActivityClick(e) {
-  var activityType = e.target.id;
-  var selectedActivity = {};
+  if (path.length > 0) {
+    var activityType = e.target.id;
+    var selectedActivity = {};
 
-  switch (activityType) {
-    case 'walk':
-      selectedActivity = walkActivity;
-      break;
-    case 'run':
-      selectedActivity = runActivity;
-      break;
-    case 'bike':
-      selectedActivity = bikeActivity;
-      break;
+    switch (activityType) {
+      case 'walk':
+        selectedActivity = walkActivity;
+        break;
+      case 'run':
+        selectedActivity = runActivity;
+        break;
+      case 'bike':
+        selectedActivity = bikeActivity;
+        break;
+    }
+
+    currentUser.addActivity(selectedActivity);
+    location.href = 'stat.html';
+  } else {
+    alert('Please enter your route before selecting an activity.')
   }
-
-  currentUser.addActivity(selectedActivity);
-  location.href = 'stat.html';
 }
 
 // Page setup functions -----------------------------------
@@ -292,7 +295,7 @@ function initActivityButtonHandlers() {
   var walk = document.getElementById('walk');
   var run = document.getElementById('run');
   var bike = document.getElementById('bike');
-
+  
   walk.addEventListener('click', onActivityClick);
   run.addEventListener('click', onActivityClick);
   bike.addEventListener('click', onActivityClick);
@@ -304,23 +307,29 @@ function initTemplateActivities() {
   bikeActivity = new Activity('bike');
 }
 
+function linkSidebarElements() {
+  elDistance = document.getElementById('distance');
+  
+  elWalkTime = document.getElementById('walk_time');
+  elWalkCal = document.getElementById('walk_calories');
+  
+  elRunTime = document.getElementById('run_time');
+  elRunCal = document.getElementById('run_calories');
+  
+  elBikeTime = document.getElementById('bike_time');
+  elBikeCal = document.getElementById('bike_calories');
+}
+
+function onDOMContentLoaded(e) {
+  linkSidebarElements();
+  initActivityButtonHandlers();
+}
+
 function initMapPage() {
   console.time('initMapPage');
   initTemplateActivities();
   initMapCanvas();
-  initActivityButtonHandlers();
-
-  elDistance = document.getElementById('distance');
-
-  elWalkTime = document.getElementById('walk_time');
-  elWalkCal = document.getElementById('walk_calories');
-
-  elRunTime = document.getElementById('run_time');
-  elRunCal = document.getElementById('run_calories');
-
-  elBikeTime = document.getElementById('bike_time');
-  elBikeCal = document.getElementById('bike_calories');
-
+  document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
   console.timeEnd('initMapPage');
 }
 
