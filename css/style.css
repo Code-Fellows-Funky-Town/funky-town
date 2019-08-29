@@ -179,6 +179,38 @@ li {
     transition: 1s all;
 }
 
+#what {
+  
+    
+    background-color: rgba(126, 165, 190, 0);
+    border: solid 5px rgb(95, 91, 91) ;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgb(3, 8, 19);
+    clear: both;
+    height:150px;
+    margin: 2px;
+    object-fit:scale-down;
+    opacity: 1;
+    margin: 0px 0px 0px 1000px;
+    text-shadow: 5px;
+    width:150px;
+
+}
+
+#what :hover {
+
+    background-color: rgb(116, 213, 243);
+    border: solid 30px rgb(247, 56, 56) ;
+    border-radius: 50px;
+    opacity: 1;
+    cursor: grab;
+    nav-index: auto;
+    box-shadow: 5px 5px 5px rgb(86, 136, 230);
+    transition-delay: 0.5s;
+    transition: 1s all;
+}
+
+
 
 #myVideo {
 

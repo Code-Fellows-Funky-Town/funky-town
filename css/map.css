@@ -22,7 +22,7 @@ section {
   font-family:'Audiowide', cursive;
   font-size:20px;
   margin: 0px;
-  padding-top:120px;
+  padding-top:150px;
   text-align: left;
   text-shadow: 7px 7px 1px rgba(247, 246, 246, 0);
   top:10px;
@@ -50,31 +50,31 @@ section {
 
 #w1 {
   font-size : 20px;
-  height:70px;
-  margin: 0px;
-  margin-top: 170px;
-  width: 120px;
+  height:50px;
+  margin-left: 150px;
+  margin-top: 380px;
+  width: 90px;
 }
 
 #r1 {
   font-size : 20px;
-  height:70px;
-  margin: 0px;
+  height:50px;
+  margin:150px;
   margin-bottom: 20px;
   position: absolute;
-  top: 500px;
-  width: 120px;
+  top: 580px;
+  width: 90px;
 }
 
 
 #b1 {
   font-size : 20px;
-  height:70px;
-  margin: 0px;
+  height:50px;
+  margin: 150px;
   margin-bottom: 20px;
   position: absolute;
-  top: 710px;
-  width: 120px;
+  top: 790px;
+  width: 90px;
 }
 
 
@@ -112,7 +112,7 @@ section {
   height:150px;
   left:60px;
   position: absolute;
-  top:180px;
+  top:220px;
   width:150px;
 }
 
@@ -174,7 +174,7 @@ section {
 
   font-family: 'Audiowide', cursive;
   font-size: 20px;
-  height: 150px;
+  height: 200px;
   list-style-type: none;
   overflow: auto;
   margin-top: 50px;
@@ -188,7 +188,7 @@ section {
 
   font-family: 'Audiowide', cursive;
   font-size: 18px;
-  height: 170px;
+  height: 150px;
   list-style-type: none;
   overflow: auto;
   padding-top:200px;
@@ -201,7 +201,7 @@ section {
   color: rgb(11, 12, 12);
   font-family: 'Audiowide', cursive;
   font-size: 18px;
-  height: 100px;
+  height: 150px;
   list-style-type: none;
   overflow: auto;
   padding-top: 50px;
@@ -218,7 +218,7 @@ section {
   height: 150px;
   list-style-type: none;
   overflow: auto;
-  padding-top: 100px;
+  padding-top: 60px;
   z-index: 2;
 
 }
