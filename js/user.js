@@ -1,11 +1,13 @@
 'use strict';
 
+/* global currentUser */ // From app.js
+
 // TODO: SOC; page specific code should be in the page specific JS file.
 // Shared code should be in app.js or other purpose specific JS file.
 var greeting = document.getElementById('greeting');
 var enter = document.getElementById('enter');
 
-function onSubmitUpdateUser(e) {
+function onSubmit(e) {
   e.preventDefault();
   var cu = currentUser;
   cu.name = e.target.name.value;
@@ -17,19 +19,6 @@ function onSubmitUpdateUser(e) {
   cu.saveToLocalStorage();
   location.href = 'map.html';
 }
-
-// function onSubmitNewUser(e) {
-//   e.preventDefault();
-//   var name = e.target.name.value;
-//   var email = e.target.email.value;
-//   var age = parseInt(e.target.age.value);
-//   var currentWeight = parseInt(e.target.currentWeight.value);
-//   var targetWeight = parseInt(e.target.targetWeight.value);
-//   new User(name, email, age, currentWeight, targetWeight);
-
-//   location.href = 'map.html';
-// }
-
 
 // Retrieves the user instance based on the entered id and auto fills the form
 function populateUserForm() {
@@ -51,15 +40,14 @@ function userPageInit() {
     greeting.appendChild(h2);
     h2.textContent = 'Welcome back ' + currentUser.name + '! Please check if the below information is up to date!';
     greeting.appendChild(h2);
-    populateUserForm();
   } else {
     h2 = document.createElement('h2');
     greeting.appendChild(h2);
     h2.textContent = 'Hello ' + currentUser.name + '! Please provide the below information!';
     greeting.appendChild(h2);
-    populateUserForm();
   }
-  enter.addEventListener('submit', onSubmitUpdateUser);
+  populateUserForm();
+  enter.addEventListener('submit', onSubmit);
 }
 
 userPageInit();

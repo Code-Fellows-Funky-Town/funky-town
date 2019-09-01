@@ -28,7 +28,7 @@ function User(name, email, age, currentWeight, targetWeight) {
  * To be called only by the User constructor.
  *
  */
-User.prototype.loadActivities = function () {
+User.prototype.loadActivities = function() {
   if (this.email) {
     var key = 'activities-' + this.email;
     var arr = JSON.parse(localStorage.getItem(key));
@@ -45,7 +45,7 @@ User.prototype.loadActivities = function () {
   }
 };
 
-User.prototype.saveActivityList = function () {
+User.prototype.saveActivityList = function() {
   if (this.email && this.activityList.length > 0) {
     var key = 'activities-' + this.email;
     var str = JSON.stringify(this.activityList);
@@ -53,12 +53,12 @@ User.prototype.saveActivityList = function () {
   }
 };
 
-User.prototype.addActivity = function (activity) {
+User.prototype.addActivity = function(activity) {
   this.activityList.push(activity);
   this.saveActivityList();
 };
 
-User.prototype.userDataComplete = function () {
+User.prototype.userDataComplete = function() {
   // TODO: discuss if any fields are optional.
   return (typeof this.currentWeight === 'number');
 };
@@ -121,6 +121,7 @@ Activity.prototype.distance = function(distance) {
 
 // Helper Functions -----------------------------------------------------
 
+/* exported addElement */
 /**
  * This is a helper function to add an element with given tag name optional text, class name, and id to the given parent
  *
@@ -148,28 +149,7 @@ function addElement(parent, tagName, text, className, id) {
   return newElement;
 }
 
-/**
- * Removes all child elements from the given element.
- *
- * The method used is faster than ```element.innerHTML = ''``` according to
- * https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
- *
- * @param {*} element
- */
-function clearElement(element) {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
-  }
-}
-
 /************************************************************************** */
-
-
-// function newActivity() {
-//   var type = event.target.id;
-//   new Activity(type);
-//   localStorage.setItem('activities-' + currentUser.email, JSON.stringify(listOfActivities));
-// }
 
 function initCurrentUser() {
   var obj = JSON.parse(localStorage.getItem('userId'));
