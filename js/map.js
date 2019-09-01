@@ -28,8 +28,6 @@ var path = [];
 // paint is set to true if mouse movement on canvas should paint, false if not
 var paint;
 
-// global addElement
-
 // Functions for route changes that require a redraw and stats change -------------------------
 
 /**
@@ -145,9 +143,9 @@ function redrawPath() {
   // Clear the canvas
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   if (path.length > 0) {
-    ctx.strokeStyle = '#ee2211';
-    ctx.lineJoin = 'round';
     ctx.lineWidth = 4;
+    ctx.lineJoin = 'round';
+    ctx.strokeStyle = '#ee2211';
 
     ctx.beginPath();
     ctx.moveTo(path[0][0], path[0][1]);
@@ -164,7 +162,7 @@ function redrawPath() {
 /**
  * Shifts the path by the given offset.
  *
- * This function will be used when a sliding map is implemented.
+ * This function is to be used when a sliding map is implemented.
  *
  * @param {*} path
  * @param {*} xOffset
@@ -292,6 +290,20 @@ function onActivityClick(e) {
 
 // Page setup functions -----------------------------------
 
+function initTemplateActivities() {
+  walkActivity = new Activity('walk');
+  runActivity = new Activity('run');
+  bikeActivity = new Activity('bike');
+}
+
+function initMapCanvas() {
+  canvas.addEventListener('mousedown', onMousedown);
+  canvas.addEventListener('mouseup', onMouseup);
+  canvas.addEventListener('mousemove', onMousemove);
+  canvas.addEventListener('mouseleave', onMouseleave);
+  canvas.addEventListener('contextmenu', onContextMenu);
+}
+
 function renderUserProfile() {
   var ul = document.getElementById('sidenav1');
   addElement(ul, 'li', `NAME: ${currentUser.name}`);
@@ -307,30 +319,6 @@ function renderUserProfile() {
   addElement(ul, 'br');
 }
 
-function initMapCanvas() {
-  canvas.addEventListener('mousedown', onMousedown);
-  canvas.addEventListener('mouseup', onMouseup);
-  canvas.addEventListener('mousemove', onMousemove);
-  canvas.addEventListener('mouseleave', onMouseleave);
-  canvas.addEventListener('contextmenu', onContextMenu);
-}
-
-function initActivityButtonHandlers() {
-  var walk = document.getElementById('walk');
-  var run = document.getElementById('run');
-  var bike = document.getElementById('bike');
-
-  walk.addEventListener('click', onActivityClick);
-  run.addEventListener('click', onActivityClick);
-  bike.addEventListener('click', onActivityClick);
-}
-
-function initTemplateActivities() {
-  walkActivity = new Activity('walk');
-  runActivity = new Activity('run');
-  bikeActivity = new Activity('bike');
-}
-
 function linkSidebarElements() {
   elDistance = document.getElementById('distance');
 
@@ -342,6 +330,16 @@ function linkSidebarElements() {
 
   elBikeTime = document.getElementById('bike_time');
   elBikeCal = document.getElementById('bike_calories');
+}
+
+function initActivityButtonHandlers() {
+  var walk = document.getElementById('walk');
+  var run = document.getElementById('run');
+  var bike = document.getElementById('bike');
+
+  walk.addEventListener('click', onActivityClick);
+  run.addEventListener('click', onActivityClick);
+  bike.addEventListener('click', onActivityClick);
 }
 
 function onDOMContentLoaded() {
