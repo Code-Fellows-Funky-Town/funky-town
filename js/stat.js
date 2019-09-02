@@ -1,5 +1,8 @@
 'use strict';
 
+/* global currentUser */ // From app.js
+/* global Chart */ // From Chart.js
+
 var userInfo = document.getElementById('user-info');
 
 var labels = ['Walk', 'Run', 'Bike'];
@@ -56,9 +59,9 @@ function generateData() {
 }
 
 function renderCalorieReport() {
-  
+
   var ctx = document.getElementById('chart').getContext('2d');
-  var myChart = new Chart(ctx, {
+  new Chart(ctx, {
     type: 'bar',
     data: {
       labels: labels,
@@ -93,7 +96,7 @@ function renderCalorieReport() {
 function renderDistanceReport() {
 
   var ctx = document.getElementById('chart1').getContext('2d');
-  var myChart = new Chart(ctx, {
+  new Chart(ctx, {
     type: 'bar',
     data: {
       labels: labels,
@@ -125,80 +128,11 @@ function renderDistanceReport() {
   });
 }
 
-/**
- * Simulate user data in local storage for testing.
- *
- */
-function statsTest() {
-
-  var userId = {
-    name: 'Jeremiah',
-    email: 'jeremiah.kim@hotmail.com',
-  };
-  localStorage.setItem('userId', JSON.stringify(userId));
-
-  var user1 = {
-    name: 'Jeremiah',
-    email: 'jeremiah.kim@hotmail.com',
-    age: 65,
-    currentWeight: 200,
-    targetWeight: 150
-  };
-
-  localStorage.setItem('user-jeremiah.kim@hotmail.com', JSON.stringify(user1));
-
-  var act1 = [{
-      type: 'walk',
-      distance: 1,
-      duration: 1,
-      calorieCount: 100
-    },
-    {
-      type: 'run',
-      distance: 1,
-      duration: 1,
-      calorieCount: 100
-    },
-    {
-      type: 'run',
-      distance: 1,
-      duration: 1,
-      calorieCount: 100
-    },
-    {
-      type: 'walk',
-      distance: 1,
-      duration: 1,
-      calorieCount: 100
-    },
-    {
-      type: 'run',
-      distance: 1,
-      duration: 1,
-      calorieCount: 100
-    },
-    {
-      type: 'bike',
-      distance: 1,
-      duration: 1,
-      calorieCount: 100
-    }
-  ];
-  localStorage.setItem('activities-jeremiah.kim@hotmail.com', JSON.stringify(act1));
-
-  initCurrentUser();
-}
-
 function runStatsPage() {
   printProfile();
   generateData();
   renderCalorieReport();
   renderDistanceReport();
-}
-
-function testStatsPage() {
-  statsTest();
-  runStatsPage();
 }
 
 runStatsPage();
