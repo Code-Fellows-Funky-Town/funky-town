@@ -14,5 +14,5 @@ function storeUserCheck(e) {
   location.href = 'pages/user.html';
 }
 
-// event listner that waits for user input
+// event listener that waits for user input
 formLogin.addEventListener('submit', storeUserCheck);
