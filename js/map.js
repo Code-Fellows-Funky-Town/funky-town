@@ -1,6 +1,8 @@
 'use strict';
 
-// Activity object references for candidate activities.  
+/* global currentUser, Activity, addElement */ // from app.js
+
+// Activity object references for candidate activities.
 // Of these the user selected activity will be appended to the current user's activity list in the User object .
 var walkActivity = {};
 var runActivity = {};
@@ -19,8 +21,8 @@ var elBikeTime = {};
 var elBikeCal = {};
 
 // Global variables for route tracing
-var canvas = document.getElementById("map_canvas");
-var ctx = canvas.getContext("2d");
+var canvas = document.getElementById('map_canvas');
+var ctx = canvas.getContext('2d');
 var path = [];
 
 // paint is set to true if mouse movement on canvas should paint, false if not
@@ -28,13 +30,13 @@ var paint;
 
 // Functions for route changes that require a redraw and stats change -------------------------
 
+/**
+ * Reset to an empty path to allow the user to start over.
+ *
+ */
+// eslint-disable-next-line no-unused-vars
 function resetPath() {
   path = [];
-  updatePath();
-}
-
-function endPath() {
-  // TODO: endPath if we need it.  Strip if we don't...
   updatePath();
 }
 
@@ -77,11 +79,11 @@ function onMousemove(e) {
   }
 }
 
-function onMouseup(e) {
+function onMouseup() {
   paint = false;
 }
 
-function onMouseleave(e) {
+function onMouseleave() {
   paint = false;
 }
 
@@ -89,7 +91,7 @@ function onMouseleave(e) {
 
 /**
  * Add a new point to the end of the path array.
- * 
+ *
  * @param {*} x X coordinate
  * @param {*} y Y coordinate
  */
@@ -99,7 +101,7 @@ function addPointToPath(x, y) {
 
 /**
  * Called after any change to the route path to update the the page rendering and distance information.
- * This pixel to mile conversion factor is applied here before calling the distance property setter on the Activity 
+ * This pixel to mile conversion factor is applied here before calling the distance property setter on the Activity
  * objects.
  */
 function updatePath() {
@@ -130,7 +132,7 @@ function updatePath() {
 
 /**
  * Clears the canvas and draws the current path.
- * 
+ *
  * For simple operation this is called after every update to the path, completely redrawing the path.
  * Although it would be more efficient to draw only what is new, this seems to work fast enough
  * for our purposes.
@@ -141,9 +143,9 @@ function redrawPath() {
   // Clear the canvas
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   if (path.length > 0) {
-    ctx.strokeStyle = "#ee2211";
-    ctx.lineJoin = "round";
     ctx.lineWidth = 4;
+    ctx.lineJoin = 'round';
+    ctx.strokeStyle = '#ee2211';
 
     ctx.beginPath();
     ctx.moveTo(path[0][0], path[0][1]);
@@ -159,13 +161,14 @@ function redrawPath() {
 
 /**
  * Shifts the path by the given offset.
- * 
- * This function would be used if a sliding map is implemented.
+ *
+ * This function is to be used when a sliding map is implemented.
  *
  * @param {*} path
  * @param {*} xOffset
  * @param {*} yOffset
  */
+// eslint-disable-next-line no-unused-vars
 function translatePath(path, xOffset, yOffset) {
   for (var i = 0; i < path.length; i++) {
     path[i][0] += xOffset;
@@ -208,7 +211,7 @@ function totalPathDistance(path) {
  * @param {*} path Reference to the path that will be shortened
  * @param {*} distance Length to be removed
  * @param {*} atLeast If true, remove the next remaining segment that would exceed the given distance to remove, otherwise leave that segment.
- * 
+ *
  */
 function removeDistance(path, distance, atLeast) {
   var len = 0;
@@ -228,7 +231,7 @@ function removeDistance(path, distance, atLeast) {
       dy = y - lastY;
       len += Math.sqrt(dx * dx + dy * dy);
       if (atLeast) {
-        remove++
+        remove++;
         if (len > distance) {
           break;
         }
@@ -253,9 +256,9 @@ function formatHours(hours, showSeconds) {
   var m = Math.floor((hours * 60) % 60);
   var s = Math.floor((hours * 3600) % 60);
   if (showSeconds) {
-    return `${h.toString()}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+    return `${h.toString()}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   } else {
-    return `${h.toString()}:${m.toString().padStart(2, "0")}`;
+    return `${h.toString()}:${m.toString().padStart(2, '0')}`;
   }
 }
 
@@ -267,25 +270,39 @@ function onActivityClick(e) {
     var selectedActivity = {};
 
     switch (activityType) {
-      case 'walk':
-        selectedActivity = walkActivity;
-        break;
-      case 'run':
-        selectedActivity = runActivity;
-        break;
-      case 'bike':
-        selectedActivity = bikeActivity;
-        break;
+    case 'walk':
+      selectedActivity = walkActivity;
+      break;
+    case 'run':
+      selectedActivity = runActivity;
+      break;
+    case 'bike':
+      selectedActivity = bikeActivity;
+      break;
     }
 
     currentUser.addActivity(selectedActivity);
     location.href = 'stat.html';
   } else {
-    alert('Please enter your route before selecting an activity.')
+    alert('Please enter your route before selecting an activity.');
   }
 }
 
 // Page setup functions -----------------------------------
+
+function initTemplateActivities() {
+  walkActivity = new Activity('walk');
+  runActivity = new Activity('run');
+  bikeActivity = new Activity('bike');
+}
+
+function initMapCanvas() {
+  canvas.addEventListener('mousedown', onMousedown);
+  canvas.addEventListener('mouseup', onMouseup);
+  canvas.addEventListener('mousemove', onMousemove);
+  canvas.addEventListener('mouseleave', onMouseleave);
+  canvas.addEventListener('contextmenu', onContextMenu);
+}
 
 function renderUserProfile() {
   var ul = document.getElementById('sidenav1');
@@ -302,44 +319,30 @@ function renderUserProfile() {
   addElement(ul, 'br');
 }
 
-function initMapCanvas() {
-  canvas.addEventListener('mousedown', onMousedown);
-  canvas.addEventListener('mouseup', onMouseup);
-  canvas.addEventListener('mousemove', onMousemove);
-  canvas.addEventListener('mouseleave', onMouseleave);
-  canvas.addEventListener('contextmenu', onContextMenu)
+function linkSidebarElements() {
+  elDistance = document.getElementById('distance');
+
+  elWalkTime = document.getElementById('walk_time');
+  elWalkCal = document.getElementById('walk_calories');
+
+  elRunTime = document.getElementById('run_time');
+  elRunCal = document.getElementById('run_calories');
+
+  elBikeTime = document.getElementById('bike_time');
+  elBikeCal = document.getElementById('bike_calories');
 }
 
 function initActivityButtonHandlers() {
   var walk = document.getElementById('walk');
   var run = document.getElementById('run');
   var bike = document.getElementById('bike');
-  
+
   walk.addEventListener('click', onActivityClick);
   run.addEventListener('click', onActivityClick);
   bike.addEventListener('click', onActivityClick);
 }
 
-function initTemplateActivities() {
-  walkActivity = new Activity('walk');
-  runActivity = new Activity('run');
-  bikeActivity = new Activity('bike');
-}
-
-function linkSidebarElements() {
-  elDistance = document.getElementById('distance');
-  
-  elWalkTime = document.getElementById('walk_time');
-  elWalkCal = document.getElementById('walk_calories');
-  
-  elRunTime = document.getElementById('run_time');
-  elRunCal = document.getElementById('run_calories');
-  
-  elBikeTime = document.getElementById('bike_time');
-  elBikeCal = document.getElementById('bike_calories');
-}
-
-function onDOMContentLoaded(e) {
+function onDOMContentLoaded() {
   renderUserProfile();
   linkSidebarElements();
   initActivityButtonHandlers();
