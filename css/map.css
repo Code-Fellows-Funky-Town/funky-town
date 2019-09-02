@@ -4,113 +4,118 @@ body {
 }
 
 h1 {
-  color:rgb(0, 0, 0); 
-  font-family:'Audiowide', cursive;
-  font-size:80px;
+  color: rgb(0, 0, 0);
+  font-family: 'Audiowide', cursive;
+  font-size: 80px;
   padding-top: 0px;
   text-align: center;
   text-shadow: 7px 7px 1px rgb(247, 246, 246);
 }
 
 section {
-  color:rgb(12, 10, 10); 
+  color: rgb(12, 10, 10);
   display: inline;
-  font-family:'Audiowide', cursive;
-  font-size:20px;
+  font-family: 'Audiowide', cursive;
+  font-size: 20px;
   margin: 0px;
-  padding-top:150px;
+  padding-top: 150px;
   text-align: left;
   text-shadow: 7px 7px 1px rgba(247, 246, 246, 0);
-  top:10px;
-  left:10px;
+  top: 10px;
+  left: 10px;
   position: absolute;
-  z-index: 100;
 }
 
 .mapButton {
-  font-size :20px;
-  height:70px;
-  margin : 0px;
+  font-size: 20px;
+  height: 70px;
+  margin: 0px;
   left: 30px;
   position: absolute;
   width: 120px;
+  z-index: 10;
 }
 
 .mapButton2 {
-  font-size : 20px;
-  height:70px;
+  font-size: 20px;
+  height: 70px;
   left: 170px;
   position: absolute;
   margin: 0px;
   width: 120px;
+  z-index: 10;
 }
 
 #walk {
-  font-size : 20px;
-  height:50px;
+  font-size: 20px;
+  height: 50px;
   margin-left: 230px;
-  margin-top: 450px;
+  position: absolute;
+  top: 600px;
   width: 90px;
+  z-index: 10;
 }
 
 #run {
-  font-size : 20px;
-  height:50px;
-  margin-left:230px;
+  font-size: 20px;
+  height: 50px;
+  margin-left: 230px;
   position: absolute;
   top: 780px;
   width: 90px;
+  z-index: 10;
 }
 
 #bike {
-  font-size : 20px;
-  height:50px;
+  font-size: 20px;
+  height: 50px;
   margin-left: 230px;
   position: absolute;
   top: 960px;
   width: 90px;
+  z-index: 10;
 }
 
 #mapPicture {
-  height:150px;
-  left:90px;
+  height: 150px;
+  left: 90px;
   position: absolute;
-  top:365px;
-  width:150px;
+  top: 365px;
+  width: 150px;
   z-index: 2;
 }
 
 #mapPicture1 {
-  height:150px;
-  left:1830px;
+  height: 150px;
+  left: 1830px;
   position: absolute;
-  top:750px;
-  width:150px;
+  top: 750px;
+  width: 150px;
   z-index: 2;
 }
 
 #mapPicture2 {
-  height:150px;
-  left:1780px;
+  height: 150px;
+  left: 1780px;
   position: absolute;
-  top:0px;
-  width:150px;
+  top: 0px;
+  width: 150px;
 }
 
 #mapPicture3 {
-  height:150px;
-  left:110px;
+  height: 150px;
+  left: 110px;
   position: absolute;
-  top:220px;
-  width:150px;
+  top: 220px;
+  width: 150px;
 }
 
 #mapPicture4 {
-  height:150px;
-  left:1720px;
+  height: 150px;
+  left: 1720px;
   position: absolute;
-  top:930px;
-  width:200px;
+  top: 930px;
+  width: 200px;
 }
 
 .map {
@@ -178,13 +183,12 @@ li {
   display: inline-block;
   width: 1920px;
   height: 1080px;
-  /* background: rgb(0, 0, 0, 0); */
   position: relative;
   top: 0;
   left: 0;
 }
 
-.img {
+.map_img {
   position: absolute;
   z-index: -1;
 }

@@ -1,85 +1,81 @@
 body {
-    width: 1200px;
-    margin: 0 auto;
-    background-color: gray;
+  width: 1200px;
+  margin: 0 auto;
+  background-color: gray;
 }
 
 .aboutUsLinks {
-    border-radius: 20px;
-    border: 5px solid black;
-    box-shadow: 10px 10px 5px rgb(15, 15, 15);
-    font-family: 'Audiowide', cursive;
-    font-size: 40px;
-    height: 100px;
-    margin: 0 auto;
-    text-shadow: 3px 3px 5px rgb(247, 246, 246);
-    width: 500px;
-    color: black;
-    margin: 30px;
-    padding: 10px;
+  border-radius: 20px;
+  border: 5px solid black;
+  box-shadow: 10px 10px 5px rgb(15, 15, 15);
+  font-family: 'Audiowide', cursive;
+  font-size: 40px;
+  height: 100px;
+  margin: 0 auto;
+  text-shadow: 3px 3px 5px rgb(247, 246, 246);
+  width: 500px;
+  color: black;
+  margin: 30px;
+  padding: 10px;
 }
 
 h1 {
-    color: rgb(0, 0, 0);
-    font-family: 'Audiowide', cursive;
-    font-size: 80px;
-    text-align: center;
-    padding: 40px;
-    text-shadow: 5px 5px 1px rgb(247, 246, 246);
+  color: rgb(0, 0, 0);
+  font-family: 'Audiowide', cursive;
+  font-size: 80px;
+  text-align: center;
+  padding: 40px;
+  text-shadow: 5px 5px 1px rgb(247, 246, 246);
 }
 
 h2 {
-    color: rgb(0, 0, 0);
-    font-family: 'Audiowide', cursive;
-    font-size: 40px;
-    text-shadow: 3px 3px 3px rgb(247, 246, 246);
-    display: block;
-    padding: 50px 0 10px 0;
+  color: rgb(0, 0, 0);
+  font-family: 'Audiowide', cursive;
+  font-size: 40px;
+  text-shadow: 3px 3px 3px rgb(247, 246, 246);
+  display: block;
+  padding: 50px 0 10px 0;
 }
 
-#aboutUs {}
-
-#devInfo {}
-
 div {
-    display: block;
-    position: relative;
-    padding-top: 40px;
+  display: block;
+  position: relative;
+  padding-top: 40px;
 }
 
 .devs {
-    font-family: 'Baloo Tamma', cursive;
-    font-size: 2em;
-    padding: 30px;
-    position: absolute;
+  font-family: 'Baloo Tamma', cursive;
+  font-size: 2em;
+  padding: 30px;
+  position: absolute;
 }
 
 .dev_img {
-    width: 200px;
-    height: auto;
-    display: inline-block;
+  width: 200px;
+  height: auto;
+  display: inline-block;
 }
 
 .dev_info {
-    position: absolute;
-    font-family: 'Baloo Tamma', cursive;
-    font-size: 1em;
-    display: inline-block;
-    padding: 70px 0 0 30px;
-    list-style: square;
+  position: absolute;
+  font-family: 'Baloo Tamma', cursive;
+  font-size: 1em;
+  display: inline-block;
+  padding: 70px 0 0 30px;
+  list-style: square;
 }
 
 ul>li {
-    font-family: 'Baloo Tamma', cursive;
-    font-size: 1.25em;
+  font-family: 'Baloo Tamma', cursive;
+  font-size: 1.25em;
 }
 
 #links {
-    text-align: center;
+  text-align: center;
 }
 
 footer {
-    text-align: center;
-    bottom: 100%;
-    padding: 40px 0 15px 0;
+  text-align: center;
+  bottom: 100%;
+  padding: 40px 0 15px 0;
 }
